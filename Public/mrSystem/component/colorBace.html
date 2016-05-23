@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta charset="UTF-8">
+    <title>颜色库</title>
+    <!-- start: MAIN CSS -->
+    <link href="../res/bootstrap/bootstrap-3.3.0/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="../res/component/css/component.css" rel="stylesheet" type="text/css" />
+    <!-- end: MAIN CSS -->
+</head>
+<body>
+<div class="background_Frame_div_bg" style=""></div>
+<!-- 两种加载效果二选一，在页面底部javascript设置 -->
+<!-- 进入页面加载 动态图效果 -->
+<div id="loading_layer" style="display:none;">
+    <img src="../res/component/img/loading.gif" id="loading_img" alt=""/>
+</div>
+<!-- 主面板 -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="component_title_div" style="background-color: #f88408;">
+            <div class="component_title_tit">
+                <span >颜色库</span>
+            </div>
+            <div class="component_title_con">
+                <span >所有页面,基础颜色系选择.</span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="component_content_div">
+            <div class="component_color_Frame">
+                <div class="component_bace_color">
+                    <div class="component_bace_color_left">
+                        <table class="component_bace_color_table1">
+                            <thead>
+                                <tr><td colspan="3"><span>主配色:</span></td></tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="background-color:#ea5300"><span>#ea5300</span></td>
+                                    <td style="background-color:#f88408"><span>#f88408</span></td>
+                                    <td style="background-color:#5d5d63"><span>#5d5d63</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="component_bace_color_right">
+                        <table class="component_bace_color_table2">
+                            <thead>
+                            <tr><td colspan="4"><span>辅助色:</span></td></tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td style="background-color:#f75a53"><span>#f75a53</span></td>
+                                <td style="background-color:#0073dd"><span>#0073dd</span></td>
+                                <td style="background-color:#54cb00"><span>#54cb00</span></td>
+                                <td style="background-color:#676a75"><span>#676a75</span></td>
+                                <td style="background-color:#e2e6ef"><span style="color:#000;">#e2e6ef</span></td>
+                            </tr>
+                            <tr>
+                                <td style="background-color:#fc8272"><span>#fc8272</span></td>
+                                <td style="background-color:#4798f2"><span>#4798f2</span></td>
+                                <td style="background-color:#69dc17"><span>#69dc17</span></td>
+                                <td style="background-color:#828999"><span>#828999</span></td>
+                                <td style="background-color:#f2f2f3"><span style="color:#000;">#f2f2f3</span></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="component_style_color">
+                    <div class="component_style_color_table1">
+                        <table >
+                            <thead >
+                            <tr >
+                                <td ><span >Table表格 颜色系列</span></td>
+                            </tr>
+                            </thead>
+                            <tbody >
+                            <tr >
+                                <td >
+                                    <span >风格1</span>
+                                </td>
+                                <td >
+                                    <span >表头</span>
+                                </td>
+                                <td style="background-color: #828999">
+                                    <span >#828999</span>
+                                </td>
+                                <td >
+                                    <span >表体</span>
+                                </td>
+                                <td style="background-color: #e2e6ef">
+                                    <span >#e2e6ef</span>
+                                </td>
+                                <td >
+                                    <span >字体颜色</span>
+                                </td>
+                                <td style="background-color: #000000">
+                                    <span style="color: #fff;">#000000</span>
+                                </td>
+                                <td >
+                                    <span >选择效果</span>
+                                </td>
+                                <td style="background-color: #e2e6ef">
+                                    <span >#e2e6ef</span>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="component_style_color_table2">
+                        <table >
+                            <thead >
+                            <tr >
+                                <td ><span >a超链接 颜色系列</span></td>
+                            </tr>
+                            </thead>
+                            <tbody >
+                            <tr >
+                                <td >
+                                    <span >风格1</span>
+                                </td>
+                                <td >
+                                    <span >无激活</span>
+                                </td>
+                                <td style="background-color: #e2e6ef">
+                                    <span >#e2e6ef</span>
+                                </td>
+                                <td >
+                                    <span >移动状态</span>
+                                </td>
+                                <td style="background-color: #f88408">
+                                    <span >#f88408</span>
+                                </td>
+                                <td >
+                                    <span >点击状态</span>
+                                </td>
+                                <td style="background-color: #ea5300">
+                                    <span style="color: #fff;">#ea5300</span>
+                                </td>
+                                <td >
+                                    <span >激活状态</span>
+                                </td>
+                                <td style="background-color: #ea5300">
+                                    <span >#ea5300</span>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- start: MAIN JAVASCRIPTS -->
+
+<!--[if lt IE 9]>
+<script src="res/basic/js/excanvas.min.js"></script>
+<![endif]-->
+
+<script type="text/javascript" src="../res/basic/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="../res/bootstrap/bootstrap-3.3.0/js/bootstrap.js"></script>
+<script type="text/javascript" src="../res/component/js/component.js" ></script>
+<script type="text/javascript">
+    startLoading();
+</script>
+<!-- end: MAIN JAVASCRIPTS -->
+</body>
+</html>

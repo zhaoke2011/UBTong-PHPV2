@@ -1,0 +1,462 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+    <title>软件包-评价详情页</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+    <link href="../res/iframe/css/com.css" rel="stylesheet" type="text/css" />
+    <link href="../res/iframe/css/mall.css" rel="stylesheet" type="text/css" />
+    <link href="../res/iframe/css/popularize.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" language="javascript" src="../res/iframe/js/jquery.js"></script>
+    <script type="text/javascript" language="javascript" src="../res/iframe/js/mall.js"></script>
+    <script type="text/javascript" language="javascript" src="../res/iframe/js/anythingSlider.js"></script>
+    <script type="text/javascript" language="javascript" src="../res/iframe/js/popularize.js"></script>
+    <script type="text/javascript">
+        function formatText(index, panel) {
+            return index + "";
+        }
+        $(function() {
+
+            $('#anythingSlider').anythingSlider({
+                easing: "easeInOutExpo",        // Anything other than "linear" or "swing" requires the easing plugin
+                autoPlay: false,                 // This turns off the entire FUNCTIONALY, not just if it starts running or not.
+                delay: 1000,                    // How long between slide transitions in AutoPlay mode
+                startStopped: false,            // If autoPlay is on, this can force it to start stopped
+                animationTime: 1200,             // How long the slide transition takes
+                hashTags: true,                 // Should links change the hashtag in the URL?
+                buildNavigation: true,          // If true, builds and list of anchor links to link to each slide
+                pauseOnHover: true,             // If true, and autoPlay is enabled, the show will pause on hover
+                startText: "Go",             // Start text
+                stopText: "Stop",               // Stop text
+                navigationFormatter: formatText       // Details at the top of the file on this use (advanced use)
+            });
+
+            $("#slide-jump").click(function() {
+                $('#anythingSlider').anythingSlider(6);
+            });
+
+        });
+
+    </script>
+    <!---------------------------------------------------------------Jquery效果------------------------------------------------------------------------->
+    <!--[if IE 6]>
+    <script src="../res/js/png.js"></script>
+    <script>
+        DD_belatedPNG.fix('.body-left .logo img, .right-banner .home a, .right-banner .quit a, .right-banner .newbie, .right-banner .newbie span, .wrapper li .s-plus, .next-page .page-up, .next-page .page-down');
+    </script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="../res/bootstrap/loadRes/css/load.css">
+    <link href="listCss.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../res/basic/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../res/bootstrap/loadRes/js/load.js"></script>
+    <script>
+        //* 隐藏页面只显示加载效果
+        document.documentElement.className += 'hidenELE';
+    </script>
+</head>
+
+<body>
+<div class="background_Frame_div_bg" style=""></div>
+<!-- 两种加载效果二选一，在页面底部javascript设置 -->
+<!-- 进入页面加载 动态图效果 -->
+<div id="loading_layer" style="display:none;">
+    <img src="../res/bootstrap/loadRes/img/loading-9.gif" id="loading_img" alt=""/>
+</div>
+<script>
+    //调用加载效果设置方法（延时100毫秒是为了保证gif已经下载好）
+    //loadingSet第一个参数为类型，1为gif动态图，2为css3效果，1000为毫秒数
+    setTimeout("loadingSet(1,1000)",100);
+</script>
+<div class="body-pd">
+    <div class="body-home">
+        <div class="main-content">
+            <!--右边内容-->
+            <div class="body-right">
+                <!--信息-->
+                <div class="genera-particul">
+                    <div class="particul-left">
+                        <span class="icon"><img width="150" height="150" src="../res/basic/img/popularize/software1.png" /></span>
+                        <div class="introduce">
+                            <h1>促销海报</h1>
+                            <p class="p-recommend">促销海报制作是众人皆知的广告宣传手段，无论是企业宣传某种商品，还是社团策划某种活动，在准备阶段都会向众人张贴一张相关的海报。相对于简单的宣传单页而言，海报所承载的信息量比较大，因而受到人们的追捧。</p>
+                            <p class="p-money"><span>价格：</span><em>￥10-188</em></p>
+                            <span class="clr"></span>
+                            <p class="p-money"><span>促销：</span><em>￥10-88</em></p>
+                            <span class="clr"></span>
+                            <div class="p-money" style="margin-top:10px;">
+                                <span>周期：</span>
+                                <ul>
+                                    <li class="act"><a href="#">7天(免费试用)</a></li>
+                                    <li><a href="#">一个月</a></li>
+                                    <li><a href="#">一季度</a></li>
+                                    <li><a href="#">半年</a></li>
+                                    <li><a href="#">一年</a></li>
+                                </ul>
+                            </div>
+                            <div class="clr"></div>
+                        </div>
+                    </div>
+                    <div class="particul-right">
+                        <span class="s-score">4.9</span>
+                        <div class="stars"><span class="credit credit3"><img class="half-star" src="../res/iframe/img/halfstar.gif" /></span></div>
+                        <p>有效评价：<span>8077</span>次</p>
+                        <p>免费使用：<span>15万</span>人</p>
+                        <p>付费使用：<span>2.0万</span>人</p>
+                        <p>浏览数：<span>3.3万次/30天</span></p>
+                        <a class="a-btn" href="#">立即订购</a>
+                    </div>
+                    <div class="clr"></div>
+                </div>
+                <!--信息-end-->
+
+                <!--滚动套餐-->
+                <div class="package">
+                    <h1><span>开店必备特惠套餐</span></h1>
+                    <div id="anythingSlider">
+                        <div style="overflow: hidden;" class="wrapper icon-lists">
+                            <ul>
+                                <li>
+                                    <a class="a-icon" href="###">
+                                        <img width="64" height="62" src="../res/iframe/img/popularize/software1.png" />
+                                    </a>
+                                    <span class="s-plus"></span>
+                                    <a class="a-icon" href="###">
+                                        <img width="64" height="62" src="../res/iframe/img/popularize/software2.png" />
+                                    </a>
+                                    <span class="s-plus"></span>
+                                    <a class="a-icon" href="###">
+                                        <img width="64" height="62" src="../res/iframe/img/popularize/default.png" />
+                                    </a>
+                                    <span class="s-plus"></span>
+                                    <a class="a-icon" href="###">
+                                        <img width="64" height="62" src="../res/iframe/img/popularize/default.png" />
+                                    </a>
+                                    <span class="s-plus"></span>
+                                    <a class="a-icon" href="###">
+                                        <img width="64" height="62" src="../res/iframe/img/popularize/default.png" />
+                                    </a>
+                                    <span class="s-plus s-equal"></span>
+                                    <p class="p-money">
+                                        <span><em>原价：</em><em class="e-money">￥10-188</em></span>
+                                        <span class="clr"></span>
+                                        <span><em>套餐价：</em><em class="e-money">￥10-188</em></span>
+                                    </p>
+                                    <a class="a-btn" href="###">立即订购</a>
+                                </li>
+                                <li>
+                                    <a class="a-icon" href="###">
+                                        <img width="64" height="62" src="../res/iframe/img/popularize/software3.png" />
+                                    </a>
+                                    <span class="s-plus"></span>
+                                    <a class="a-icon" href="###">
+                                        <img width="64" height="62" src="../res/iframe/img/popularize/software4.png" />
+                                    </a>
+                                    <span class="s-plus"></span>
+                                    <a class="a-icon" href="###">
+                                        <img width="64" height="62" src="../res/iframe/img/popularize/default.png" />
+                                    </a>
+                                    <span class="s-plus"></span>
+                                    <a class="a-icon" href="###">
+                                        <img width="64" height="62" src="../res/iframe/img/popularize/default.png" />
+                                    </a>
+                                    <span class="s-plus"></span>
+                                    <a class="a-icon" href="###">
+                                        <img width="64" height="62" src="../res/iframe/res/img/popularize/default.png" />
+                                    </a>
+                                    <span class="s-plus s-equal"></span>
+                                    <p class="p-money">
+                                        <span><em>原价：</em><em class="e-money">￥10-188</em></span>
+                                        <span class="clr"></span>
+                                        <span><em>套餐价：</em><em class="e-money">￥10-188</em></span>
+                                    </p>
+                                    <a class="a-btn" href="###">立即订购</a>
+                                </li>
+                                <li>
+                                    <a class="a-icon" href="###">
+                                        <img width="64" height="62" src="../res/iframe/img/popularize/software5.png" />
+                                    </a>
+                                    <span class="s-plus"></span>
+                                    <a class="a-icon" href="###">
+                                        <img width="64" height="62" src="../res/iframe/img/popularize/software6.png" />
+                                    </a>
+                                    <span class="s-plus"></span>
+                                    <a class="a-icon" href="###">
+                                        <img width="64" height="62" src="../res/iframe/img/popularize/default.png" />
+                                    </a>
+                                    <span class="s-plus"></span>
+                                    <a class="a-icon" href="###">
+                                        <img width="64" height="62" src="../res/iframe/img/popularize/default.png" />
+                                    </a>
+                                    <span class="s-plus"></span>
+                                    <a class="a-icon" href="###">
+                                        <img width="64" height="62" src="../res/iframe/img/popularize/default.png" />
+                                    </a>
+                                    <span class="s-plus s-equal"></span>
+                                    <p class="p-money">
+                                        <span><em>原价：</em><em class="e-money">￥10-188</em></span>
+                                        <span class="clr"></span>
+                                        <span><em>套餐价：</em><em class="e-money">￥10-188</em></span>
+                                    </p>
+                                    <a class="a-btn" href="###">立即订购</a>
+                                </li>
+                                <li>
+                                    <a class="a-icon" href="###">
+                                        <img width="64" height="62" src="../res/iframe/img/popularize/software7.png" />
+                                    </a>
+                                    <span class="s-plus"></span>
+                                    <a class="a-icon" href="###">
+                                        <img width="64" height="62" src="../res/iframe/img/popularize/software8.png" />
+                                    </a>
+                                    <span class="s-plus"></span>
+                                    <a class="a-icon" href="###">
+                                        <img width="64" height="62" src="../res/iframe/img/popularize/default.png" />
+                                    </a>
+                                    <span class="s-plus"></span>
+                                    <a class="a-icon" href="###">
+                                        <img width="64" height="62" src="../res/iframe/img/popularize/default.png" />
+                                    </a>
+                                    <span class="s-plus"></span>
+                                    <a class="a-icon" href="###">
+                                        <img width="64" height="62" src="../res/iframe/img/popularize/default.png" />
+                                    </a>
+                                    <span class="s-plus s-equal"></span>
+                                    <p class="p-money">
+                                        <span><em>原价：</em><em class="e-money">￥10-188</em></span>
+                                        <span class="clr"></span>
+                                        <span><em>套餐价：</em><em class="e-money">￥10-188</em></span>
+                                    </p>
+                                    <a class="a-btn" href="###">立即订购</a>
+                                </li>
+                                <li>
+                                    <a class="a-icon" href="###">
+                                        <img width="64" height="62" src="../res/iframe/img/popularize/software9.png" />
+                                    </a>
+                                    <span class="s-plus"></span>
+                                    <a class="a-icon" href="###">
+                                        <img width="64" height="62" src="../res/iframe/img/popularize/software10.png" />
+                                    </a>
+                                    <span class="s-plus"></span>
+                                    <a class="a-icon" href="###">
+                                        <img width="64" height="62" src="../res/iframe/img/popularize/default.png" />
+                                    </a>
+                                    <span class="s-plus"></span>
+                                    <a class="a-icon" href="###">
+                                        <img width="64" height="62" src="../res/iframe/img/popularize/default.png" />
+                                    </a>
+                                    <span class="s-plus"></span>
+                                    <a class="a-icon" href="###">
+                                        <img width="64" height="62" src="../res/iframe/img/popularize/default.png" />
+                                    </a>
+                                    <span class="s-plus s-equal"></span>
+                                    <p class="p-money">
+                                        <span><em>原价：</em><em class="e-money">￥10-188</em></span>
+                                        <span class="clr"></span>
+                                        <span><em>套餐价：</em><em class="e-money">￥10-188</em></span>
+                                    </p>
+                                    <a class="a-btn" href="###">立即订购</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!--滚动套餐-end-->
+
+                <div class="tab-product tab-estimate" id="tabProduct">
+                    <div class="tab-choose">
+                        <div class="choose">
+                            <a class="a-tab" href="#">
+                                <span class="tab-l"></span>
+                                <span class="tab-m">服务详情</span>
+                                <span class="tab-r"></span>
+                            </a>
+                            <a class="a-tab" href="#">
+                                <span class="tab-l"></span>
+                                <span class="tab-m">使用教程</span>
+                                <span class="tab-r"></span>
+                            </a>
+                            <a class="a-tab act" href="#">
+                                <span class="tab-l"></span>
+                                <span class="tab-m">评价详情</span>
+                                <span class="tab-r"></span>
+                            </a>
+                            <a class="a-tab" href="#">
+                                <span class="tab-l"></span>
+                                <span class="tab-m">订购记录</span>
+                                <span class="tab-r"></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="clr"></div>
+                    <div class="inventory" style="_margin-top:-31px;">
+                        <div class="estimate">
+                            <div class="estimate-star">
+                                <span class="s-serve">服务与描述相符<em>4.9</em>分</span>
+                                <span class="s-star"><img class="star star3" src="../res/iframe/img/px1.gif" /><img class="half-grey" src="../res/iframe/img/halfgrey.gif" /></span>
+                            </div>
+                            <div class="star-scale">
+                                <div class="scale">
+                                    <span class="s-small"><img class="smallstars smallstars5" src="../res/iframe/img/px1.gif" /></span>
+                                    <span class="s-strip"></span>
+                                    <span style="margin-top:-2px;">94.28%</span>
+                                    <div class="clr"></div>
+                                </div>
+                                <div class="scale">
+                                    <span><img class="smallstars smallstars4" src="../res/iframe/img/px1.gif" /><img class="greystar greystar1" src="../res/iframe/img/px1.gif" /></span>
+                                    <span class="s-strip" style="width:5px;"></span>
+                                    <span style="margin-top:-2px;">4.28%</span>
+                                    <div class="clr"></div>
+                                </div>
+                                <div class="scale">
+                                    <span><img class="smallstars smallstars3" src="../res/iframe/img/px1.gif" /><img class="greystar greystar2" src="../res/iframe/img/px1.gif" /></span>
+                                    <span class="s-strip" style="width:2px;"></span>
+                                    <span style="margin-top:-2px;">1.11%</span>
+                                    <div class="clr"></div>
+                                </div>
+                                <div class="scale">
+                                    <span><img class="smallstars smallstars2" src="../res/iframe/img/px1.gif" /><img class="greystar greystar3" src="../res/iframe/img/px1.gif" /></span>
+                                    <span class="s-strip" style="width:2px;"></span>
+                                    <span style="margin-top:-2px;">1.22%</span>
+                                    <div class="clr"></div>
+                                </div>
+                                <div class="scale">
+                                    <span><img class="smallstars smallstars1" src="../res/iframe/img/px1.gif" /><img class="greystar greystar4" src="../res/iframe/img/px1.gif" /></span>
+                                    <span class="s-strip" style="width:1px;"></span>
+                                    <span style="margin-top:-2px;">0.28%</span>
+                                    <div class="clr"></div>
+                                </div>
+                            </div>
+                            <div class="clr"></div>
+                        </div>
+
+                        <div class="evaluate-lists">
+                            <div class="evaluate">
+                                <span>卖家这样评价：</span>
+                                <ul>
+                                    <li><a href="#">操作简单方便(80)</a></li>
+                                    <li><a href="#">服务态度好(80)</a></li>
+                                    <li><a href="#">服务态度好(80)</a></li>
+                                    <li><a class="a-review" href="#">操作行一般(80)</a></li>
+                                </ul>
+                                <div class="clr"></div>
+                            </div>
+                            <div class="clr"></div>
+                            <div class="estimate-lists">
+                                <ul>
+                                    <li>
+                                        <p class="p-name">希丹Zidance</p>
+                                        <div class="particulars">
+                                            <p>物有所值，性价比很高，值得信赖，已经在买五部了！</p>
+                                            <p class="p-service">客服:感谢您的5分好评，系统已自动登记，送您1年延保服务哦！金杯银杯，不如老百姓的口碑，欢迎再次光临！</p>
+                                        </div>
+                                        <div class="time">
+                                            <p>一年版促销海报</p>
+                                            <p class="p-time">2014-4-25<span>13:29</span></p>
+                                        </div>
+                                        <div class="clr"></div>
+                                    </li>
+                                    <li>
+                                        <p class="p-name">希丹Zidance</p>
+                                        <div class="particulars">
+                                            <p>物有所值，性价比很高，值得信赖，已经在买五部了！</p>
+                                            <p class="p-service">客服:感谢您的5分好评，系统已自动登记，送您1年延保服务哦！金杯银杯，不如老百姓的口碑，欢迎再次光临！</p>
+                                        </div>
+                                        <div class="time">
+                                            <p>一年版促销海报</p>
+                                            <p class="p-time">2014-4-25<span>13:29</span></p>
+                                        </div>
+                                        <div class="clr"></div>
+                                    </li>
+                                    <li>
+                                        <p class="p-name">希丹Zidance</p>
+                                        <div class="particulars">
+                                            <p>物有所值，性价比很高，值得信赖，已经在买五部了！</p>
+                                            <p class="p-service">客服:感谢您的5分好评，系统已自动登记，送您1年延保服务哦！金杯银杯，不如老百姓的口碑，欢迎再次光临！</p>
+                                        </div>
+                                        <div class="time">
+                                            <p>一年版促销海报</p>
+                                            <p class="p-time">2014-4-25<span>13:29</span></p>
+                                        </div>
+                                        <div class="clr"></div>
+                                    </li>
+                                    <li>
+                                        <p class="p-name">希丹Zidance</p>
+                                        <div class="particulars">
+                                            <p>物有所值，性价比很高，值得信赖，已经在买五部了！</p>
+                                            <p class="p-service">客服:感谢您的5分好评，系统已自动登记，送您1年延保服务哦！金杯银杯，不如老百姓的口碑，欢迎再次光临！</p>
+                                        </div>
+                                        <div class="time">
+                                            <p>一年版促销海报</p>
+                                            <p class="p-time">2014-4-25<span>13:29</span></p>
+                                        </div>
+                                        <div class="clr"></div>
+                                    </li>
+                                    <li>
+                                        <p class="p-name">希丹Zidance</p>
+                                        <div class="particulars">
+                                            <p>物有所值，性价比很高，值得信赖，已经在买五部了！</p>
+                                            <p class="p-service">客服:感谢您的5分好评，系统已自动登记，送您1年延保服务哦！金杯银杯，不如老百姓的口碑，欢迎再次光临！</p>
+                                        </div>
+                                        <div class="time">
+                                            <p>一年版促销海报</p>
+                                            <p class="p-time">2014-4-25<span>13:29</span></p>
+                                        </div>
+                                        <div class="clr"></div>
+                                    </li>
+                                    <li>
+                                        <p class="p-name">希丹Zidance</p>
+                                        <div class="particulars">
+                                            <p>物有所值，性价比很高，值得信赖，已经在买五部了！</p>
+                                            <p class="p-service">客服:感谢您的5分好评，系统已自动登记，送您1年延保服务哦！金杯银杯，不如老百姓的口碑，欢迎再次光临！</p>
+                                        </div>
+                                        <div class="time">
+                                            <p>一年版促销海报</p>
+                                            <p class="p-time">2014-4-25<span>13:29</span></p>
+                                        </div>
+                                        <div class="clr"></div>
+                                    </li>
+                                    <li>
+                                        <p class="p-name">希丹Zidance</p>
+                                        <div class="particulars">
+                                            <p>物有所值，性价比很高，值得信赖，已经在买五部了！</p>
+                                            <p class="p-service">客服:感谢您的5分好评，系统已自动登记，送您1年延保服务哦！金杯银杯，不如老百姓的口碑，欢迎再次光临！</p>
+                                        </div>
+                                        <div class="time">
+                                            <p>一年版促销海报</p>
+                                            <p class="p-time">2014-4-25<span>13:29</span></p>
+                                        </div>
+                                        <div class="clr"></div>
+                                    </li>
+                                </ul>
+                                <div class="clr"></div>
+                            </div>
+                        </div>
+
+                        <div class="tab-page">
+                            <div class="next-page">
+                                <a class="page-up" href="#">&nbsp;</a>
+                                <a class="act" href="#">1</a>
+                                <a href="#">2</a>
+                                <a href="#">3</a>
+                                <a href="#">4</a>
+                                <a href="#">5</a>
+                                <a href="#">6</a>
+                                <span style="color:#fff">...</span>
+                                <a class="page-down" href="#">&nbsp;</a>
+                                <span>到</span>
+                                <input type="text"></input>
+                                <span>页</span>
+                                <a class="a-confirm" href="#">确认</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--右边内容-end-->
+        </div>
+        <div class="clr"></div>
+    </div>
+</div>
+<script>GetTime();</script>
+</body>
+</html>

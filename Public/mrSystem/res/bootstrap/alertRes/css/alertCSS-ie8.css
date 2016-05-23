@@ -1,0 +1,16 @@
+.background_Frame_div{
+    background-color:#373b4a;
+}
+.modal-dialog{
+    margin-left: auto;
+    margin-right: auto;
+    margin-left: 500px;
+    margin-top: 50px;
+    width: 500px;
+}
+.modal_Frame{
+
+}
+body.login .box-login, body.login .box-forgot, body.login .box-register .alert_Frame{
+    background-color:#444444;
+}

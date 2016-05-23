@@ -1,0 +1,439 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>商品管理-添加商品</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+    <link href="../res/iframe/css/com.css" rel="stylesheet" type="text/css" />
+    <link href="../res/iframe/css/mall.css" rel="stylesheet" type="text/css" />
+    <link href="../res/iframe/css/popularize.css" rel="stylesheet" type="text/css" />
+    <link href="../res/bootstrap/bootstrap-3.3.0/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="../res/component/css/component.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" language="javascript" src="../res/iframe/js/jquery.js"></script>
+    <script type="text/javascript" language="javascript" src="../res/iframe/js/mall.js"></script>
+    <!---------------------------------------------------------------Jquery效果------------------------------------------------------------------------->
+    <!--[if IE 6]>
+    <script>
+        DD_belatedPNG.fix('.body-left .logo img, .right-banner .home a, .right-banner .quit a, .right-banner .newbie, .right-banner .newbie span, .tab-choose .search div, .tab-choose .search .search-r, .tab-choose .search .search-m .search-btn');
+    </script>
+    <![endif]-->
+    <link href="../res/iframe/css/list.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div class="background_Frame_div_bg" style=""></div>
+<!-- 两种加载效果二选一，在页面底部javascript设置 -->
+<!-- 进入页面加载 动态图效果 -->
+<div id="loading_layer" style="display:none;">
+    <img src="../res/bootstrap/loadRes/img/loading.gif" id="loading_img" alt=""/>
+</div>
+    <!--右边内容-->
+    <div class="body-right">
+        <div class="order-main" id="orderMain" style="height:auto;">
+            <!--订单切换-->
+            <div class="tab-product add-product" id="tabProduct">
+                <div class="tab-choose">
+                    <div class="choose">
+                        <a class="a-tab act" href="#">
+                            <span class="tab-l"></span>
+                            <span class="tab-m">添加新商品</span>
+                            <span class="tab-r"></span>
+                        </a>
+                        <a class="a-tab" href="#">
+                            <span class="tab-l"></span>
+                            <span class="tab-m">仓库中的商品</span>
+                            <span class="tab-r"></span>
+                        </a>
+                        <a class="a-tab" href="#">
+                            <span class="tab-l"></span>
+                            <span class="tab-m">出售中的商品</span>
+                            <span class="tab-r"></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="clr"></div>
+                <div class="inventory" style="_margin-top:-31px;" id="tableHeight">
+                    <div class="productManage" id="productManage">
+
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%" class="addProduct">
+                            <tr>
+                                <td class="addProduct-label"><label><span>*</span>商品分类：</label></td>
+                                <td>
+                                    <dl class="select_style_1">
+                                        <dt class="select_selected">
+                                            <span class="selected_value">这是个订阅号</span>
+                                            <input type="hidden" value="订阅号"/>
+                                        </dt>
+                                        <dd class="select_option_dd">
+                                            <ul class="select_option_array">
+                                                <li class="select_option">
+                                                    <span class="option_value">选项一</span>
+                                                </li>
+                                                <li class="select_option">
+                                                    <span class="option_value">选项二</span>
+                                                </li>
+                                                <li class="select_option">
+                                                    <span class="option_value">选项三</span>
+                                                </li>
+                                                <li class="select_option">
+                                                    <span class="option_value">选项四</span>
+                                                </li>
+                                            </ul>
+                                        </dd>
+                                    </dl>
+                                    <div class="clr"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="addProduct-label"><label><span>*</span>商品名称：</label></td>
+                                <td>
+                                    <input type="text" placeholder="请输入文字..." class="input_text_1" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="addProduct-label"><label><span>*</span>封面图片：</label></td>
+                                <td>
+                                    <a href="#" class="coverImg cI-act"><img src="../res/iframe/img/img001.jpg" /></a>
+                                    <span class="addProduct-ps">建议尺寸：长300px 宽300px</span>
+                                    <div class="clr"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="addProduct-label"><label><span>*</span>商品图片：</label></td>
+                                <td>
+                                    <!-- 这里可添加五张图 -->
+                                    <a href="#" class="coverImg"></a>
+
+                                    <span class="addProduct-ps">建议尺寸：长300px 宽300px</span>
+                                    <div class="clr"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="addProduct-label"><label><span>*</span>商品价格：</label></td>
+                                <td><input type="text" class="productInfor" /></td>
+                            </tr>
+                            <tr>
+                                <td class="addProduct-label"><label>商品运费：</label></td>
+                                <td><input type="text" class="productInfor" /><span>（如不需要则为空）</span></td>
+                            </tr>
+                            <tr>
+                                <td class="addProduct-label"><label><span>*</span>商品编码：</label></td>
+                                <td><input type="text" class="productInfor" /></td>
+                            </tr>
+                            <tr>
+                                <td class="addProduct-label"><label>商品库存：</label></td>
+                                <td class="addProduct-inventory">
+                                    <input type="text" class="productInfor" />
+                                    <label class="input_radio_label checkbox_name_1" style="width: 150px;margin-top: 10px;">
+                                        <span class="input_checkbox_icon" style="height: 14px;line-height: 14px;"></span>
+                                        <input type="checkbox" name="radio_1" class="input_checkbox_1" />
+                                        <span style="height: 14px;line-height: 14px;">页面不显示商品库存</span>
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="addProduct-label"><label>购买方式：</label></td>
+                                <td class="addProduct-buyWay">
+                                    <label class="input_radio_label radio_name_1" style="width: 153px;height: 18px">
+                                        <span class="input_radio_icon"></span>
+                                        <input type="radio" name="radio_1" class="input_radio_1" title="1" />
+                                        <span>在优百通购买</span>
+                                    </label>
+                                    <label class="input_radio_label radio_name_1" style="width: 153px;height: 18px">
+                                        <span class="input_radio_icon"></span>
+                                        <input type="radio" name="radio_1" class="input_radio_1" title="2"/>
+                                        <span>链接到外部购买</span>
+                                    </label>
+                                </td>
+                            </tr>
+                            <!-- 上面选择外部购买才显示 -->
+                            <tr class="wailink" style="display:none;">
+                                <td class="addProduct-label"><label><span>*</span>外部购买地址：</label></td>
+                                <td><input type="text" class="productName" /><span>（选择使用外部链接地址生成订单，外部购买的订单暂不支持CPS推广系统）</span></td>
+                            </tr>
+                            <tr>
+                                <td class="addProduct-label"></td>
+                                <td>
+                                    <a class="Btn-addProduct Btn-button"><span>添加类型</span></a>
+                                    <a class="Btn-addProduct Btn-link">前往设置更多类型参数 &gt;</a>
+                                </td>
+                            </tr>
+                            <tr class="addmorepop" style="display:none;">
+
+                                <td colspan="2">
+                                    <div class="addmorebox">
+                                        <div class="colorClass">
+                                            <div class="addmore-name">颜色分类：</div>
+                                            <div class="addmore-right">
+                                                <ul class="addmore-list colorClass-list">
+                                                    <li><input type="checkbox" checked="checked" /><span class="color-armyGreen"></span><label>军绿色</label></li>
+                                                    <li><input type="checkbox" checked="checked" /><span class="color-red"></span><label>红色</label></li>
+                                                    <li><input type="checkbox" /><span class="color-black"></span><label>黑色</label></li>
+                                                    <li><input type="checkbox" /><span class="color-yellow"></span><label>黄色</label></li>
+                                                    <li><input type="checkbox" /><span class="color-gray"></span><label>灰色</label></li>
+                                                    <li><input type="checkbox" /><span class="color-pink"></span><label>粉色</label></li>
+                                                    <li><input type="checkbox" /><span class="color-purple"></span><label>紫色</label></li>
+                                                    <li><input type="checkbox" /><span class="color-white"></span><label>白色</label></li>
+                                                    <div class="clr"></div>
+                                                </ul>
+                                                <div class="addmore-checkAll"><input type="checkbox" id="checkAll-color" /><label for="checkAll-color">全选</label></div>
+                                                <div class="addImage">
+                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                        <tr>
+                                                            <td width="30%">样色分类</td>
+                                                            <td>图片（无图片可不填）</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><span class="color-armyGreen"></span><label>军绿色</label></td>
+                                                            <td><input type="text" /><a href="#">浏览</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><span class="color-red"></span><label>红色</label></td>
+                                                            <td><input type="text" /><a href="#">浏览</a></td>
+                                                        </tr>
+                                                    </table>
+
+                                                </div>
+
+                                                <script type="text/javascript">
+
+                                                    var _eash = $(".colorClass-list").find("li");
+                                                    $.each(_eash,function(i,e){
+
+                                                        var	_this = $(e).find("input[type='checkbox']").attr("checked");
+                                                        if(_this==true){
+
+                                                            $(".addImage").show();
+
+                                                        }
+                                                    });
+
+
+
+                                                    $("#checkAll-color").click(function(){
+                                                        var _this = $(this).attr("checked");
+
+                                                        if(_this==true){
+
+                                                            $(".colorClass-list").find("input[type='checkbox']").attr("checked",true);
+
+
+                                                        }
+                                                        if(_this==false){
+
+                                                            $(".colorClass-list").find("input[type='checkbox']").attr("checked",false);
+
+                                                        }
+
+                                                    });
+
+                                                </script>
+                                            </div>
+                                            <div class="clr"></div>
+                                        </div>
+
+                                        <div class="sizeClass">
+                                            <div class="addmore-name">号码分类：</div>
+                                            <div class="addmore-right">
+                                                <ul class="addmore-list sizeClass-list">
+                                                    <li><input type="checkbox" checked="checked" /><label>37</label></li>
+                                                    <li><input type="checkbox" checked="checked"  /><label>38</label></li>
+                                                    <li><input type="checkbox" checked="checked"  /><label>39</label></li>
+                                                    <li><input type="checkbox" checked="checked"  /><label>40</label></li>
+                                                    <li><input type="checkbox" /><label>41</label></li>
+                                                    <li><input type="checkbox" /><label>42</label></li>
+                                                    <li><input type="checkbox" /><label>43</label></li>
+                                                    <li><input type="checkbox" /><label>44</label></li>
+                                                    <div class="clr"></div>
+                                                </ul>
+                                                <div class="addmore-checkAll"><input type="checkbox" id="checkAll-size" /><label for="checkAll-size">全选</label></div>
+
+
+                                                <script type="text/javascript">
+
+                                                    var _eash = $(".sizeClass-list").find("li");
+                                                    $.each(_eash,function(i,e){
+
+                                                        var	_this = $(e).find("input[type='checkbox']").attr("checked");
+                                                        if(_this==true){
+
+                                                            $(".sizeInfor").show();
+
+                                                        }
+                                                    });
+
+                                                    $("#checkAll-size").click(function(){
+                                                        var _this = $(this).attr("checked");
+
+                                                        if(_this==true){
+
+                                                            $(".sizeClass-list").find("input[type='checkbox']").attr("checked",true);
+
+
+                                                        }
+                                                        if(_this==false){
+
+                                                            $(".sizeClass-list").find("input[type='checkbox']").attr("checked",false);
+
+                                                        }
+
+                                                    });
+
+                                                    var _tr = $(".sizeAdd").find("tr");
+                                                    $.each(_tr,function(i,e){
+
+                                                        $(this).find("td").first().css("border-left","0px");
+                                                        $(this).find("td").last().css("border-right","0px");
+
+                                                    });
+
+                                                </script>
+                                            </div>
+
+                                            <div class="clr"></div>
+                                        </div>
+                                        <div class="sizeInfor">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                <thead>
+                                                <tr>
+                                                    <td width="20%">样色分类</td>
+                                                    <td width="20%">号码</td>
+                                                    <td width="20%"><span>*</span>价格</td>
+                                                    <td width="20%"><span>*</span>库存</td>
+                                                    <td>编码</td>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td width="20%" rowspan="4"><span class="color-armyGreen"></span><label>军绿色</label></td>
+                                                    <td width="20%">37</td>
+                                                    <td width="20%"><input type="text" /></td>
+                                                    <td width="20%"><input type="text" /></td>
+                                                    <td><input type="text" /></td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td>38</td>
+                                                    <td><input type="text" /></td>
+                                                    <td><input type="text" /></td>
+                                                    <td><input type="text" /></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>39</td>
+                                                    <td><input type="text" /></td>
+                                                    <td><input type="text" /></td>
+                                                    <td><input type="text" /></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>40</td>
+                                                    <td><input type="text" /></td>
+                                                    <td><input type="text" /></td>
+                                                    <td><input type="text" /></td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td width="20%" rowspan="4"><span class="color-red"></span><label>红色</label></td>
+                                                    <td width="20%">37</td>
+                                                    <td width="20%"><input type="text" /></td>
+                                                    <td width="20%"><input type="text" /></td>
+                                                    <td><input type="text" /></td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td>38</td>
+                                                    <td><input type="text" /></td>
+                                                    <td><input type="text" /></td>
+                                                    <td><input type="text" /></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>39</td>
+                                                    <td><input type="text" /></td>
+                                                    <td><input type="text" /></td>
+                                                    <td><input type="text" /></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>40</td>
+                                                    <td><input type="text" /></td>
+                                                    <td><input type="text" /></td>
+                                                    <td><input type="text" /></td>
+                                                </tr>
+                                                <tbody>
+                                            </table>
+
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="addProduct-label"><label>商品描述：</label></td>
+                                <td>
+                                    <div class="addProduct-describe"><img src="../res/iframe/img/img002.jpg" /></div>
+                                </td>
+                            </tr>
+                        </table>
+                        <script type="text/javascript">
+
+                            if($("#wailink").attr("checked","true")){
+
+                                $(".wailink").show();
+
+                            }
+
+                            $("#ubaitong").click(function(){
+
+                                if($("#ubaitong").attr("checked","true")){
+
+                                    $(".wailink").hide();
+                                }
+
+                            });
+
+
+                            $("#wailink").click(function(){
+
+                                if($("#wailink").attr("checked","true")){
+
+                                    $(".wailink").show();
+                                }
+
+                            });
+
+
+
+                        </script>
+                    </div>
+                </div>
+            </div>
+            <!--订单切换-end-->
+        </div>
+
+
+    </div>
+    <!--右边内容-end-->
+<script type="text/javascript" src="../res/basic/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="../res/bootstrap/bootstrap-3.3.0/js/bootstrap.js"></script>
+<script type="text/javascript" src="../res/component/js/component.js" ></script>
+<script type="text/javascript" src="../res/basic/js/comFunction.js" ></script>
+<script type="text/javascript" src="../res/iframe/js/list.js" ></script>
+</body>
+<script type="text/javascript">
+    addMore();
+</script>
+<script type="text/javascript" >
+    startLoading();
+    $(function(){
+        //启用组件 风格1下拉框
+        componentFunction.select_style_1();
+        //展示输入框提示 例子
+        $(".input_text_1").focusout(function(){
+            var input_ele=$(this);
+            componentFunction.showRemindInputF(input_ele,"提示");
+        });
+        //单选框事件 name 单选框的名称 id 为哪项被初始化为选中 -1为没选中
+        componentFunction.radio_style_1("radio_name_1",0);
+        //复选框事件 checkbox_name复选框名字 checkbox_array初始化数组
+        var checkbox_array=new Array(1);
+        componentFunction.checkbox_style_1("checkbox_name_1",checkbox_array);
+    });
+</script>
+</html>

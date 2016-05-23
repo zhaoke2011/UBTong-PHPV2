@@ -1,0 +1,43 @@
+/*
+*系统后台 公共css
+*/
+/*列表页 start*/
+.sys_listPage_div{width: 100%; height: 100%;text-align: center;padding: 15px 15px;}
+.sys_listPage_frame{height: inherit;width: 100%;}
+.sys_listPage_frame .tab_title_div{
+    background-color: #6c8fa1;  color: #fff;  display: block;
+    font-size: 14px;  font-weight: bolder;  padding: 5px 12px;  width: 130px;
+}
+.sys_listPage_frame .tab_search_div{
+    background-color: #F3F3F3;  border: 1px solid #f4fdff;  height: 70px;  padding: 15px 10px;position: relative;
+}
+.sys_listPage_frame .tab_search_table .tab_search_span{color: #5F5F61; font-size: 14px; padding: 5px 8px 5px 10px;  }
+.sys_listPage_frame .tab_search_table .search_btn{  margin-left: 30px;  }
+.sys_listPage_frame .tab_search_table .input_text_1{  height: 34px;line-height: 34px;font-size: 13px;  }
+.sys_listPage_frame .tab_search_table .select_style_1 .select_selected:hover{
+    border-color: #c7dafa; box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6);
+}
+.tab_search_div .search_keyword_input{
+    position: absolute;right: 10px;top: 19px;
+}
+.sys_listPage_frame .input_radio_label span{ }
+.sys_listPage_frame .tb-head{ }
+.tab_body_div span,.tab_body_div td{color: #5F5F61; font-size: 14px; }
+.tab_body_div .tb-head tr{ height: 50px;border-bottom:1px solid #F3F3F3 ;}
+.tab_body_div .tb-head tr input[type="checkbox"]{width: 15px;height: 15px;}
+.tab_body_div .tb-body tr{ height: 40px;border-bottom:1px solid #F3F3F3 ;  }
+.tab_body_div .tb-body tr:hover{ background-color: #F3F3F3; }
+.tab_body_div .tb-body tr input[type="checkbox"]{width: 15px;height: 15px;}
+.tab_page_div{  padding: 16px 20px;  }
+.tab_page_div .tab_page_div_right{ float: right;margin-right: 25px;  }
+.tab_page_div .tab_page_div_left{ float: left;width: 112px;padding-left: 42px;}
+.list_option_td .list_btn_a{margin: 0px 1px;}
+.list_option_td .list_btn_a:hover{text-decoration: none;}
+.list_option_td .list_btn_a span{border: 1px solid #E6E6EA;padding: 4px 10px;color: #828A95;}
+.list_option_td .list_btn_a span:hover{border:1px solid #EA5300;color: #EA5300;}
+
+.tab_body_div .checkbox_name_1{
+    margin: 10px 0px 0px 39px;
+}
+/*列表页 end*/
+

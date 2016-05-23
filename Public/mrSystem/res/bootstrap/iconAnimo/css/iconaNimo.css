@@ -1,0 +1,12 @@
+/* 元素震动效果 */
+.r1{
+    -moz-transform:rotate(-4deg);
+    -webkit-transform:rotate(-4deg);
+    -o-transform:rotate(-4deg);
+}
+
+.r2{
+    -moz-transform:rotate(4deg);
+    -webkit-transform:rotate(4deg);
+    -o-transform:rotate(4deg);
+}

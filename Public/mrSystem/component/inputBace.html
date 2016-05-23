@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta charset="UTF-8">
+    <title>输入框</title>
+    <!-- start: MAIN CSS -->
+    <link href="../res/bootstrap/bootstrap-3.3.0/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="../res/component/css/component.css" rel="stylesheet" type="text/css" />
+    <!-- end: MAIN CSS -->
+</head>
+<body>
+<div class="background_Frame_div_bg" style=""></div>
+<!-- 两种加载效果二选一，在页面底部javascript设置 -->
+<!-- 进入页面加载 动态图效果 -->
+<div id="loading_layer" style="display:none;">
+    <img src="../res/component/img/loading.gif" id="loading_img" alt=""/>
+</div>
+<!-- 主面板 -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="component_title_div" style="background-color:#F45750;">
+            <div class="component_title_tit">
+                <span >输入框-库</span>
+            </div>
+            <div class="component_title_con">
+                <span >输入框-库.包含搜索框,输入框,单选框,复选框.以及TextArea文本域.</span>
+                <br /><span ></span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="component_content_div">
+            <div class="component_input_frame">
+                <div class="component_input_cont">
+                    <div class="component_input_style1">
+                        <div class="component_input_title">
+                            <span>搜索框-系列</span>
+                        </div>
+                        <ul class="component_input_ul">
+                            <li>
+                                <div class="input_div_area" style="padding: 38px 40px ;">
+                                    <div class="input_search_div_1">
+                                        <form action="" method="post" id="">
+                                            <input type="text" placeholder="关键字搜索" class="input_search_1"  />
+                                            <a href="javascript:;" class="a_search_1"></a>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="input_div_text">
+                                    <p>搜索框-风格1-支持IE</p>
+                                </div>
+                                <div class="input_div_option">
+                                    <a href="javascript:;" class="look_input_code">
+                                        <span>查看源码</span></a>
+                                    <textarea class="input_style_code">
+                                        <div class="input_search_div_1">
+                                            <form action="" method="post" id="form_search_1">
+                                                <input type="text" placeholder="关键字搜索" class="input_search_1"  />
+                                                <a href="javascript:;" class="a_search_1"></a>
+                                            </form>
+                                        </div>
+                                    </textarea>
+                                    <a href="javascript:;" class="cope_input_code">
+                                        <span>复制源码</span></a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="input_div_area" style="padding: 38px 40px ;">
+                                    <div class="input_search_div_2">
+                                        <form action="" method="post">
+                                            <input type="text" placeholder="关键字搜索" class="input_search_2" />
+                                            <a href="javascript:;" class="a_search_2">
+                                                <span class="glyphicon glyphicon-search"></span>
+                                            </a>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="input_div_text">
+                                    <p>搜索框-风格2-CSS 3.0</p>
+                                </div>
+                                <div class="input_div_option">
+                                    <a href="javascript:;" class="look_input_code">
+                                        <span>查看源码</span></a>
+                                    <textarea class="input_style_code">
+                                        <div class="input_search_div_2">
+                                            <form action="" method="post" id="form_search_2">
+                                                <input type="text" placeholder="关键字搜索" class="input_search_2" />
+                                                <a href="javascript:;" class="a_search_2">
+                                                    <span class="glyphicon glyphicon-search"></span>
+                                                </a>
+                                            </form>
+                                        </div>
+                                    </textarea>
+                                    <a href="javascript:;" class="cope_input_code">
+                                        <span>复制源码</span></a>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="div_clear_float"></div>
+                    </div>
+                    <div class="component_input_style1">
+                        <div class="component_input_title">
+                            <span>输入框-系列</span>
+                        </div>
+                        <ul class="component_input_ul">
+                            <li>
+                                <div class="input_div_area" style="padding: 38px 40px ;">
+                                    <input type="text" placeholder="请输入文字..." class="input_text_1" />
+                                </div>
+                                <div class="input_div_text">
+                                    <p>输入框-风格1-正常状态下</p>
+                                </div>
+                                <div class="input_div_option">
+                                    <a href="javascript:;" class="look_input_code">查看源码</a>
+                                    <textarea class="input_style_code">
+                                        <input type="text" placeholder="请输入文字..." class="input_text_1" />
+                                    </textarea>
+                                    <a href="javascript:;" class="cope_input_code">复制源码</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="input_div_area" style="padding: 38px 40px ;">
+                                    <input type="text" placeholder="请输入文字..." class="input_text_1 input_text_error" />
+                                </div>
+                                <div class="input_div_text">
+                                    <p>输入框-风格1-错误状态下</p>
+                                </div>
+                                <div class="input_div_option">
+                                    <a href="javascript:;" class="look_input_code">查看源码</a>
+                                    <textarea class="input_style_code">
+                                        <input type="text" placeholder="请输入文字..." class="input_text_1 input_text_error" />
+                                    </textarea>
+                                    <a href="javascript:;" class="cope_input_code">复制源码</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="input_div_area" style="padding: 38px 40px ;">
+                                    <input type="text" placeholder="请输入文字..." class="input_text_1 input_text_sure" />
+                                </div>
+                                <div class="input_div_text">
+                                    <p>输入框-风格1-正确状态下</p>
+                                </div>
+                                <div class="input_div_option">
+                                    <a href="javascript:;" class="look_input_code">查看源码</a>
+                                    <textarea class="input_style_code">
+                                        <input type="text" placeholder="请输入文字..." class="input_text_1 input_text_sure" />
+                                    </textarea>
+                                    <a href="javascript:;" class="cope_input_code">复制源码</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="input_div_area" style="padding: 38px 40px ;">
+                                    <div class="input_text_2_div">
+                                        <span class="input_text_2_span">用户名</span>
+                                        <input type="text" class="input_text_2" placeholder="Username">
+                                    </div>
+                                </div>
+                                <div class="input_div_text">
+                                    <p>输入框-风格4-带框名</p>
+                                </div>
+                                <div class="input_div_option">
+                                    <a href="javascript:;" class="look_input_code">查看源码</a>
+                                    <textarea class="input_style_code">
+                                        <div class="input_text_2_div">
+                                            <span class="input_text_2_span">用户名</span>
+                                            <input type="text" class="input_text_2" placeholder="Username">
+                                        </div>
+                                    </textarea>
+                                    <a href="javascript:;" class="cope_input_code">复制源码</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="input_div_area" style="padding: 38px 40px ;">
+                                    <div class="input_text_2_div">
+                                        <input type="text" class="input_text_3 input_check" placeholder="Username">
+                                        <span class="input_text_3_span input_check_click">检查</span>
+                                    </div>
+                                </div>
+                                <div class="input_div_text">
+                                    <p>输入框-风格5-检查框</p>
+                                </div>
+                                <div class="input_div_option">
+                                    <a href="javascript:;" class="look_input_code">查看源码</a>
+                                    <textarea class="input_style_code">
+                                        <div class="input_text_2_div">
+                                            <input type="text" class="input_text_3 input_check" placeholder="Username">
+                                            <span class="input_text_3_span input_check_click">检查</span>
+                                        </div>
+                                    </textarea>
+                                    <a href="javascript:;" class="cope_input_code">复制源码</a>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="div_clear_float"></div>
+                    </div>
+                    <div class="component_input_style1">
+                        <div class="component_input_title">
+                            <span>单选框-系列</span>
+                        </div>
+                        <ul class="component_input_ul">
+                            <li>
+                                <div class="input_div_area" style="padding: 38px 40px ;">
+                                    <label class="input_radio_label radio_name_1">
+                                        <span class="input_radio_icon"></span>
+                                        <input type="radio" name="radio_1" class="input_radio_1" title="1" />
+                                        <span>上线</span>
+                                    </label>
+                                    <label class="input_radio_label radio_name_1">
+                                        <span class="input_radio_icon"></span>
+                                        <input type="radio" name="radio_1" class="input_radio_1" title="2"/>
+                                        <span>隐身</span>
+                                    </label>
+                                </div>
+                                <div class="input_div_text">
+                                    <p>单选框-风格1</p>
+                                </div>
+                                <div class="input_div_option">
+                                    <a href="javascript:;" class="look_input_code">查看源码</a>
+                                    <textarea class="input_style_code">
+                                        <label class="input_radio_label radio_name_1">
+                                            <span class="input_radio_icon"></span>
+                                            <input type="radio" name="radio_1" class="input_radio_1" title="1" />
+                                            <span>上线</span>
+                                        </label>
+                                        <label class="input_radio_label radio_name_1">
+                                            <span class="input_radio_icon"></span>
+                                            <input type="radio" name="radio_1" class="input_radio_1" title="2"/>
+                                            <span>隐身</span>
+                                        </label>
+                                    </textarea>
+                                    <a href="javascript:;" class="cope_input_code">复制源码</a>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="div_clear_float"></div>
+                    </div>
+                    <div class="component_input_style1">
+                        <div class="component_input_title">
+                            <span>复选框-系列</span>
+                        </div>
+                        <ul class="component_input_ul">
+                            <li>
+                                <div class="input_div_area" style="padding: 38px 40px ;">
+                                    <label class="input_radio_label checkbox_name_1">
+                                        <span class="input_checkbox_icon"></span>
+                                        <input type="checkbox" name="radio_1" class="input_checkbox_1" />
+                                        <span>上线</span>
+                                    </label>
+                                    <label class="input_radio_label checkbox_name_1">
+                                        <span class="input_checkbox_icon"></span>
+                                        <input type="checkbox" name="radio_1" class="input_checkbox_1" />
+                                        <span>隐身</span>
+                                    </label>
+                                </div>
+                                <div class="input_div_text">
+                                    <span>复选框-风格1</span>
+                                </div>
+                                <div class="input_div_option">
+                                    <a href="javascript:;" class="look_input_code">查看源码</a>
+                                    <textarea class="input_style_code">
+                                        <label class="input_radio_label checkbox_name_1">
+                                            <span class="input_checkbox_icon"></span>
+                                            <input type="checkbox" name="radio_1" class="input_checkbox_1" />
+                                            <span>上线</span>
+                                        </label>
+                                        <label class="input_radio_label checkbox_name_1">
+                                            <span class="input_checkbox_icon"></span>
+                                            <input type="checkbox" name="radio_1" class="input_checkbox_1" />
+                                            <span>隐身</span>
+                                        </label>
+                                    </textarea>
+                                    <a href="javascript:;" class="cope_input_code">复制源码</a>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="div_clear_float"></div>
+                    </div>
+                    <div class="component_input_style1">
+                        <div class="component_input_title">
+                            <span>TextArea-系列</span>
+                        </div>
+                        <ul class="component_input_ul">
+                            <li>
+                                <div class="input_div_area" style="padding: 38px 40px ;">
+                                    <textarea class="text_area_style_1">您好,欢迎关注</textarea>
+                                </div>
+                                <div class="input_div_text">
+                                    <span>文本框-风格1-高度和宽度需自定义</span>
+                                </div>
+                                <div class="input_div_option">
+                                    <a href="javascript:;" class="look_input_code">查看源码</a>
+                                    <textarea class="input_style_code">
+                                        &lt;textarea class="text_area_style_1">您好,欢迎关注&lt;&#47;textarea&gt;
+                                    </textarea>
+                                    <a href="javascript:;" class="cope_input_code">复制源码</a>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="div_clear_float"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 模态框（Modal） -->
+    <div class="modal fade modal_Frame" id="codeModal" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel" aria-hidden="true" >
+        <div class="modal-dialog" style="z-index: 1041;width: 500px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close"
+                            data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        U百通-输入框库源码
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="">
+                        <textarea class="show_button_code">
+
+                        </textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default"
+                            data-dismiss="modal">关闭
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+    <div style="display: none;">
+        <input type="hidden" value="模态框" data-toggle="modal" id="model_btn"
+               data-target="#codeModal" class="btn" />
+    </div>
+</div>
+
+<!-- start: MAIN JAVASCRIPTS -->
+
+<!--[if lt IE 9]>
+<script src="res/basic/js/excanvas.min.js"></script>
+<![endif]-->
+
+<script type="text/javascript" src="../res/basic/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="../res/bootstrap/bootstrap-3.3.0/js/bootstrap.js"></script>
+<script type="text/javascript" src="../res/component/js/component.js" ></script>
+<script type="text/javascript" >
+    startLoading();
+    $(function(){
+        $(".cope_input_code").click(function(){
+            alert("暂时不支持点击复制!");
+        });
+        $(".look_input_code").click(function(){
+            var code_html=$(this).next("textarea").html();
+            $(".show_button_code").html(code_html);
+            $("#model_btn").click();
+        });
+        $(".input_check_click").on("click",function(){
+            var input_ele=$(".input_check");
+            componentFunction.showRemindInputF(input_ele,"提示");
+        });
+        //
+        componentFunction.radio_style_1("radio_name_1",0);
+        var checkbox_array=new Array(0,1);
+        componentFunction.checkbox_style_1("checkbox_name_1",checkbox_array);
+    });
+</script>
+<!-- end: MAIN JAVASCRIPTS -->
+</body>
+</html>

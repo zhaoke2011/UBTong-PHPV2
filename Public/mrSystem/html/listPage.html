@@ -1,0 +1,364 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="width=1000, initial-scale=1.0, maximum-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>CPA管理页</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+    <link href="../res/iframe/css/com.css" rel="stylesheet" type="text/css" />
+    <link href="../res/iframe/css/mall.css" rel="stylesheet" type="text/css" />
+    <link href="../res/iframe/css/popularize.css" rel="stylesheet" type="text/css" />
+	<link href="../res/bootstrap/bootstrap-3.3.0/css/bootstrap.css" rel="stylesheet" type="text/css" />
+	<link href="../res/component/css/component.css" rel="stylesheet" type="text/css" />
+    <!---------------------------------------------------------------Jquery效果------------------------------------------------------------------------->
+    <!--[if lt IE 9]>
+    <script src="../res/iframe/js/png.js"></script>
+    <script>
+        DD_belatedPNG.fix('.body-left .logo img, .right-banner .home a, .right-banner .quit a, .right-banner .newbie, .right-banner .newbie span, .next-page .page-up, .next-page .page-down');
+    </script>
+    <![endif]-->
+    <!--修复兼容 列表样式-->
+</head>
+
+<body>
+	<div class="background_Frame_div_bg" style=""></div>
+	<!-- 两种加载效果二选一，在页面底部javascript设置 -->
+	<!-- 进入页面加载 动态图效果 -->
+	<div id="loading_layer" style="display:none;">
+		<img src="../res/bootstrap/loadRes/img/loading.gif" id="loading_img" alt=""/>
+	</div>
+	<!--右边内容-->
+	<div class="body-right">
+		<!--订单内容块-->
+		<div class="order-main" id="orderMain" style="height:auto;">
+			<!--订单切换-->
+			<div class="tab-product cpa-product" id="tabProduct">
+				<div class="tab-choose">
+					<div class="choose">
+						<a class="a-tab act" href="#">
+							<span class="tab-l"></span>
+							<span class="tab-m">CPA管理</span>
+							<span class="tab-r"></span>
+						</a>
+						<a class="a-tab" href="#">
+							<span class="tab-l"></span>
+							<span class="tab-m">添加活动商品</span>
+							<span class="tab-r"></span>
+						</a>
+						<a class="a-tab" href="#">
+							<span class="tab-l"></span>
+							<span class="tab-m">CPA消耗明细</span>
+							<span class="tab-r"></span>
+						</a>
+						<a class="a-tab" href="#">
+							<span class="tab-l"></span>
+							<span class="tab-m">CPA细则</span>
+							<span class="tab-r"></span>
+						</a>
+					</div>
+				</div>
+				<div class="clr"></div>
+				<div class="inventory">
+					<div class="invent-banner batch-cont">
+						<div class="batch">
+							<span class="s-title">您目前可用CPA余额为<em>1000.000</em>元</span>
+							<a class="newbie" href="javascript:;">
+								<span class="newbie-l"></span>
+								<span class="newbie-m">点击充值</span>
+								<span class="newbie-r"></span>
+							</a>
+						</div>
+					</div>
+					<div class="clr"></div>
+
+					<div class="invent-banner batch-cont">
+						<div class="batch">
+							<span class="s-title">店铺首页是否支持CPA</span>
+							<span><input type="radio" id="Radio1" class="radio" name="radio1"/><label for="Radio1">是</label></span>
+							<span><input type="radio" id="Radio2" class="radio" name="radio1"/><label for="Radio2">否</label></span>
+						</div>
+					</div>
+					<div class="clr"></div>
+
+					<div class="invent-banner batch-cont">
+						<div class="batch">
+							<span class="s-title"><label style="float:left;">您目前设置的CPA推广比例为：</label><input type="text" />&nbsp;元1000次</span>
+							<span class="s-title"><label style="float:left;">每日最高限额：</label><input type="text" />&nbsp;元</span>
+							<a class="newbie edit-newbie" href="javascript:;">
+								<span class="newbie-l"></span>
+								<span class="newbie-m">修改</span>
+								<span class="newbie-r"></span>
+							</a>
+							<a class="a-batch" href="#" style="margin-right: 40px;">批量撤销</a>
+						</div>
+					</div>
+					<div class="clr"></div>
+
+					<!--表格-->
+					<div class="table">
+						<table class="or-table cpa-table table-hover-1" cellpadding="0" cellspacing="0">
+							<thead>
+							<tr>
+								<td width="4%">&nbsp;</td>
+								<td width="30%">商品名称</td>
+								<td width="13%">价格（元）</td>
+								<td width="12%">库存</td>
+								<td width="13%">总计点击次数</td>
+								<td width="15%">开始时间</td>
+								<td width="15%">操作</td>
+							</tr>
+							</thead>
+							<tbody>
+							<tr >
+								<td class="td-input">
+									<label class="input_radio_label checkbox_name_1" style="width: 25px;">
+										<span class="input_checkbox_icon"></span>
+										<input type="checkbox" name="radio_1" class="input_checkbox_1" />
+										<span></span>
+									</label>
+								</td>
+								<td class="td-pro">
+									<a class="a-img" href="###">
+										<img width="46" height="46" src="../res/iframe/img/mall/46x46orderPix1.jpg" />
+									</a>
+									<a class="a-name" href="###">戴尔 ALIENWARE 17 ALW17D-2728</a>
+								</td>
+								<td class="td-num">4999.00</td>
+								<td class="td-num">1</td>
+								<td class="td-num">15</td>
+								<td class="td-num">2014-04-04</td>
+								<td><a class="a-btn act delELE" href="javascript:;">弹框1</a></td>
+							</tr>
+							<tr>
+								<td class="td-input">
+									<label class="input_radio_label checkbox_name_1" style="width: 25px;">
+										<span class="input_checkbox_icon"></span>
+										<input type="checkbox" name="radio_1" class="input_checkbox_1" />
+										<span></span>
+									</label>
+								</td>
+								<td class="td-pro">
+									<a class="a-img" href="###">
+										<img width="46" height="46" src="../res/iframe/img/mall/46x46orderPix1.jpg" />
+									</a>
+									<a class="a-name" href="###">戴尔 ALIENWARE 17 ALW17D-2728</a>
+								</td>
+								<td class="td-num">4999.00</td>
+								<td class="td-num">1</td>
+								<td class="td-num">15</td>
+								<td class="td-num">2014-04-04</td>
+								<td><a class="a-btn act" href="javascript:;" onclick="alertFrameFunction('例子',2);">弹框2</a></td>
+							</tr>
+							<tr >
+								<td class="td-input">
+									<label class="input_radio_label checkbox_name_1" style="width: 25px;">
+										<span class="input_checkbox_icon"></span>
+										<input type="checkbox" name="radio_1" class="input_checkbox_1" />
+										<span></span>
+									</label>
+								</td>
+								<td class="td-pro">
+									<a class="a-img" href="###">
+										<img width="46" height="46" src="../res/iframe/img/mall/46x46orderPix1.jpg" />
+									</a>
+									<a class="a-name" href="###">戴尔 ALIENWARE 17 ALW17D-2728</a>
+								</td>
+								<td class="td-num">4999.00</td>
+								<td class="td-num">1</td>
+								<td class="td-num">15</td>
+								<td class="td-num">2014-04-04</td>
+								<td><a class="a-btn act delELE2" href="javascript:;" >弹框3</a></td>
+							</tr>
+							<tr>
+								<td class="td-input">
+									<label class="input_radio_label checkbox_name_1" style="width: 25px;">
+										<span class="input_checkbox_icon"></span>
+										<input type="checkbox" name="radio_1" class="input_checkbox_1" />
+										<span></span>
+									</label>
+								</td>
+								<td class="td-pro">
+									<a class="a-img" href="###">
+										<img width="46" height="46" src="../res/iframe/img/mall/46x46orderPix1.jpg" />
+									</a>
+									<a class="a-name" href="###">戴尔 ALIENWARE 17 ALW17D-2728</a>
+								</td>
+								<td class="td-num">4999.00</td>
+								<td class="td-num">1</td>
+								<td class="td-num">15</td>
+								<td class="td-num">2014-04-04</td>
+								<td><a class="a-btn act delELE3" href="javascript:;">弹框4</a></td>
+							</tr>
+							<tr >
+								<td class="td-input">
+									<label class="input_radio_label checkbox_name_1" style="width: 25px;">
+										<span class="input_checkbox_icon"></span>
+										<input type="checkbox" name="radio_1" class="input_checkbox_1" />
+										<span></span>
+									</label>
+								</td>
+								<td class="td-pro">
+									<a class="a-img" href="###">
+										<img width="46" height="46" src="../res/iframe/img/mall/46x46orderPix1.jpg" />
+									</a>
+									<a class="a-name" href="###">戴尔 ALIENWARE 17 ALW17D-2728</a>
+								</td>
+								<td class="td-num">4999.00</td>
+								<td class="td-num">1</td>
+								<td class="td-num">15</td>
+								<td class="td-num">2014-04-04</td>
+								<td><a class="a-btn " href="#">撤销</a></td>
+							</tr>
+							<tr>
+								<td class="td-input">
+									<label class="input_radio_label checkbox_name_1" style="width: 25px;">
+										<span class="input_checkbox_icon"></span>
+										<input type="checkbox" name="radio_1" class="input_checkbox_1" />
+										<span></span>
+									</label>
+								</td>
+								<td class="td-pro">
+									<a class="a-img" href="###">
+										<img width="46" height="46" src="../res/iframe/img/mall/46x46orderPix1.jpg" />
+									</a>
+									<a class="a-name" href="###">戴尔 ALIENWARE 17 ALW17D-2728</a>
+								</td>
+								<td class="td-num">4999.00</td>
+								<td class="td-num">1</td>
+								<td class="td-num">15</td>
+								<td class="td-num">2014-04-04</td>
+								<td><a class="a-btn" href="#">撤销</a></td>
+							</tr>
+							<tr >
+								<td class="td-input">
+									<label class="input_radio_label checkbox_name_1" style="width: 25px;">
+										<span class="input_checkbox_icon"></span>
+										<input type="checkbox" name="radio_1" class="input_checkbox_1" />
+										<span></span>
+									</label>
+								</td>
+								<td class="td-pro">
+									<a class="a-img" href="###">
+										<img width="46" height="46" src="../res/iframe/img/mall/46x46orderPix1.jpg" />
+									</a>
+									<a class="a-name" href="###">戴尔 ALIENWARE 17 ALW17D-2728</a>
+								</td>
+								<td class="td-num">4999.00</td>
+								<td class="td-num">1</td>
+								<td class="td-num">15</td>
+								<td class="td-num">2014-04-04</td>
+								<td><a class="a-btn" href="#">撤销</a></td>
+							</tr>
+							<tr>
+								<td class="td-input">
+									<label class="input_radio_label checkbox_name_1" style="width: 25px;">
+										<span class="input_checkbox_icon"></span>
+										<input type="checkbox" name="radio_1" class="input_checkbox_1" />
+										<span></span>
+									</label>
+								</td>
+								<td class="td-pro">
+									<a class="a-img" href="###">
+										<img width="46" height="46" src="../res/iframe/img/mall/46x46orderPix1.jpg" />
+									</a>
+									<a class="a-name" href="###">戴尔 ALIENWARE 17 ALW17D-2728</a>
+								</td>
+								<td class="td-num">4999.00</td>
+								<td class="td-num">1</td>
+								<td class="td-num">15</td>
+								<td class="td-num">2014-04-04</td>
+								<td><a class="a-btn" href="#">撤销</a></td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+					<!--表格-end-->
+
+					<div class="tab-page" style="text-align: center">
+						<div style="float: left;padding: 17px 25px;">
+							<label class="input_radio_label checkbox_name_1" style="width: 130px;">
+								<span class="input_checkbox_icon"></span>
+								<input type="checkbox" name="radio_1" class="input_checkbox_1" />
+								<span>全部选择</span>
+							</label>
+						</div>
+
+						<div class="tab_page_div_right" style="float: right;margin: 10px 20px 0px 0px;">
+							<div class="page_style_1_div" >
+								<a class="page_left">&lt;</a>
+								<a class="page_now_no">1</a>
+								<a class="page_next_no">2</a>
+								<a class="page_next_no">3</a>
+								<a class="page_next_no">4</a>
+								<a class="page_next_no">5</a>
+								<a class="page_next_no">6</a>
+								<a class="page_next_no">7</a>
+								<a class="page_next_no">8</a>
+								<a class="page_next_no">9</a>
+								<a class="page_other_no"><span>&#183;&#183;&#183;</span></a>
+								<a class="page_next_big_no">999</a>
+								<a class="page_to_no">
+									<input type="text" value="1" class="page_value" style="margin-top: 3px;" />
+								</a>
+								<a class="page_last_no">/13</a>
+								<a class="page_left">&gt;</a>
+							</div>
+						</div>
+						<div style="clear: both;"></div>
+					</div>
+				</div>
+			</div>
+			<!--订单切换-end-->
+		</div>
+		<!--订单内容块-end-->
+	</div>
+	<!--右边内容-end-->
+<!-- start: MAIN JAVASCRIPTS -->
+<!--[if lt IE 9]>
+<script src="res/basic/js/excanvas.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="../res/basic/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="../res/bootstrap/bootstrap-3.3.0/js/bootstrap.js"></script>
+<script type="text/javascript" src="../res/basic/js/png.js" ></script>
+<script type="text/javascript" src="../res/component/js/component.js" ></script>
+<!-- end: MAIN JAVASCRIPTS -->
+<script type="text/javascript">
+    Getdetails();
+</script>
+<script type="text/javascript" src="../res/basic/js/comFunction.js"></script>
+<script type="text/javascript">
+	startLoading();
+	//第一种风格提示框
+    function alertFrameFunction(str,id){
+        _mainFunction_a.alertFrameShowF("false","友情提示","你确定撤销第"+id+"项?");
+    }
+    $(".delELE").click(function(){
+        _mainFunction_a.alertFrameShowF("html/editPage.html","友情提示","你确定撤销第1项?");
+    });
+	//第二种风格提示框
+	function goto(){
+		window.location.href="editPage.html";
+	}
+	//测试获取该页面元素 可以
+	function exemple(){
+		//alert($(".delELE2").length);
+		window.location.href="listPage.html";
+		_mainFunction_a.alertFrameShowF3("false","删除成功",null);
+	}
+	$(".delELE2").click(function(){
+		_mainFunction_a.alertFrameShowF2("false","你确定撤销第3项?",exemple);
+	});
+	$(".delELE3").click(function(){
+		_mainFunction_a.alertFrameShowF3("false","你确定撤销第3项?",null);
+	});
+
+    $(".editELE").click(function(){
+        alert("正在建设中...");
+    });
+	//启用组件 风格1复选框 checkbox_array为初始化数组 1为选中,下标代表第几个复选框
+	var checkbox_array=new Array(0,1);
+	//checkbox_name_1为复选框的外围class的name
+	componentFunction.checkbox_style_1("checkbox_name_1",null);
+</script>
+</body>
+</html>

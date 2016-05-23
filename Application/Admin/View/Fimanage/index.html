@@ -1,0 +1,69 @@
+<extend name="Public/base" />
+
+<!-- 子导航 -->
+<!-- <block name="sidebar">
+    <include file="sidemenu" />
+</block>
+ -->
+<block name="body">
+	<!-- 标题栏 -->
+	<div class="main-title">
+		<h2>待审核({$count})</h2>
+	</div>
+
+    <div class="tools auth-botton">
+      <!--   <button class="btn ajax-post confirm" target-form="ids" url="{:U("Article/setStatus",array("status"=>-1))}">删 除</button> -->
+        <button class="btn ajax-post confirm" target-form="ids" onclick="tosubmit();">审 核</button>
+    </div>
+<script>
+	function tosubmit(){
+		$('#form1').submit();
+		$('#form1').attr('action','');
+	}
+</script>
+	<!-- 数据列表 -->
+	<div class="data-table table-striped">
+			<table class="">
+    <thead>
+        <tr>
+		<th class="row-selected row-selected"><input class="check-all" type="checkbox"/></th>
+		<th class="">编号</th>
+		<th class="">店铺名称</th>
+		<th class="">金额</th>
+		<th class="">支付时间</th>
+		<th class="">审核状态</th>
+		<th class="">审核时间</th>
+		<th class="">操作</th>
+		</tr>
+    </thead>
+    <tbody>
+    	<form action="{:U('Fimanage/belstatus')}" method="post" id="form1">
+		<volist name="fm" id="vo">
+		<tr>
+            <td><input class="ids" type="checkbox" name="ids[]" value="{$vo.fm_id}" /></td>
+			<td>{$vo.fm_id}</td>
+			<td>{$vo.shop_name}</td>
+			<td>{$vo.money}</td>
+			<td>{$vo.pay_time|date="Y-m-d H:i:s",###}</td>
+			<if condition="$vo.sh_status eq 0">
+			<td>未审核</td>
+			<td></td>
+			<else />
+			<td>已审核</td>
+			<td>{$vo.sh_time|date="Y-m-d H:i:s",###}</td>
+			</if>
+			<td><a href="{:U('Fimanage/setstatus?id='.$vo['fm_id'])}" class="confirm ajax-get">审核</a>
+			<!-- <a href="{:U('Article/setStatus?status=-1&ids='.$vo['id'])}" class="confirm ajax-get">删除</a> -->
+                </td>
+		</tr>
+		</volist>
+		</form>
+	</tbody>
+    </table> 
+        
+	</div>
+    <div class="page">
+        {$_page}
+    </div>
+</block>
+

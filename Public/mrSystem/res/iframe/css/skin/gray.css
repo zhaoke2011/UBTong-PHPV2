@@ -1,0 +1,56 @@
+
+
+/* 背景颜色 */
+body{background-color:#d5d6dd;}
+/* 内容区域背景颜色 */
+.body-home{background:#f5f5f5;}
+/* 导航背景、导航左边样式、导航文字颜色 */
+.body-left .nav li .navtitle{background:#ebebeb; border-left-color:#ebebeb; color:#4b4b51;}
+/* 导航鼠标经过左边样式 */
+.body-left .nav li .navtitle:hover, .body-left .nav li .navtitle.act{ border-left-color:#ea5300; }
+/* 子菜单样式 */
+.nav li .details a{border-right:3px solid #f5f5f5;}
+.nav li .details a span{color:#4b4b51;}
+.nav li .details a.act, .nav li .details a.linkon{border-right-color:#ea5300;}
+.nav li .details a.act span, .nav li .details a.linkon span{color:#ea5300;}
+.footer p{color:#4b4b51;}
+.body-left .logo a{background-image:url(../../img/logo-gray.png);}
+
+.nav li .details a .s-icon{ background:url(../../img/skin-icon003.png) no-repeat;width:18px; height:18px; overflow:hidden; margin-left:0; cursor:pointer; }
+.nav li .details a .s1-1{ background-position:-1px 0px;}
+.nav li .details a .s1-2{ background-position:-1px -20px;}
+.nav li .details a .s1-3{ background-position:-1px -40px;}
+.nav li .details a .s1-4{ background-position:-1px -60px;}
+.nav li .details a .s1-5{ background-position:-1px -80px; }
+.nav li .details a .s1-6{ background-position:-1px -100px;}
+.nav li .details a .s1-7{ background-position:-1px -120px;}
+.nav li .details a .s1-8{ background-position:-1px -140px;}
+.nav li .details a .s2-1{ background-position:-1px -160px;}
+.nav li .details a .s2-2{ background-position:-1px -160px;}
+.nav li .details a .s2-3{ background-position:-1px -160px;}
+.nav li .details a .s2-4{ background-position:-1px -180px;}
+.nav li .details a .s2-5{ background-position:-1px -200px;}
+.nav li .details a .s2-6{ background-position:-1px -220px;}
+.nav li .details a .s2-7{ background-position:-1px -160px;}
+.nav li .details a .s2-8{ background-position:-1px -160px;}
+.nav li .details a .s2-9{ background-position:-1px -160px;}
+
+.nav li .details a.act .s1-1, .nav li .details a.linkon .s1-1{ background-position:-21px 0px;}
+.nav li .details a.act .s1-2, .nav li .details a.linkon .s1-2{ background-position:-21px -20px;}
+.nav li .details a.act .s1-3, .nav li .details a.linkon .s1-3{ background-position:-21px -40px;}
+.nav li .details a.act .s1-4, .nav li .details a.linkon .s1-4{ background-position:-21px -60px;}
+.nav li .details a.act .s1-5, .nav li .details a.linkon .s1-5{ background-position:-21px -80px;}
+.nav li .details a.act .s1-6, .nav li .details a.linkon .s1-6{ background-position:-21px -100px;}
+.nav li .details a.act .s1-7, .nav li .details a.linkon .s1-7{ background-position:-21px -120px;}
+.nav li .details a.act .s1-8, .nav li .details a.linkon .s1-8{ background-position:-21px -140px;}
+.nav li .details a.act .s2-1, .nav li .details a.linkon .s2-1{ background-position:-21px -160px;}
+.nav li .details a.act .s2-2, .nav li .details a.linkon .s2-2{ background-position:-21px -160px;}
+.nav li .details a.act .s2-3, .nav li .details a.linkon .s2-3{ background-position:-21px -160px;}
+.nav li .details a.act .s2-4, .nav li .details a.linkon .s2-4{ background-position:-21px -180px;}
+.nav li .details a.act .s2-5, .nav li .details a.linkon .s2-5{ background-position:-21px -200px;}
+.nav li .details a.act .s2-6, .nav li .details a.linkon .s2-6{ background-position:-21px -220px;}
+.nav li .details a.act .s2-7, .nav li .details a.linkon .s2-7{ background-position:-21px -160px;}
+.nav li .details a.act .s2-8, .nav li .details a.linkon .s2-8{ background-position:-21px -160px;}
+.nav li .details a.act .s2-9, .nav li .details a.linkon .s2-9{ background-position:-21px -160px;}
+
+

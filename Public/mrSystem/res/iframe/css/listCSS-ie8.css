@@ -1,0 +1,40 @@
+.tab_search_div{
+    height: 40px;
+}
+.selectTable dd{
+    width: 162px;
+    z-index: 1000;
+}
+.selectTable DD ul{
+    width: 150px;z-index: 1000;
+}
+.selectTable ul li{
+    width: 150px;
+}
+.selectTable ul li a{
+    width: 140px;
+}
+.editGraphic-btn{
+    background: url("../img/server/imgedit.png");
+    display: inline-block;
+    font-size: 0;
+    height: 25px;
+    line-height: 0;
+    width: 25px;
+}
+.editGraphic-btn:hover{
+    background-position: 0 -55px;
+}
+.delGraphic-btn{
+    background: url("../img/server/imgedit.png") ;
+    display: inline-block;
+    font-size: 0;
+    height: 25px;
+    line-height: 0;
+    width: 25px;
+    background-position: -55px 0;
+    z-index: 1000;
+}
+.delGraphic-btn:hover{
+    background-position: -55px -55px;
+}

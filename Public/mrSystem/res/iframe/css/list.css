@@ -1,0 +1,152 @@
+/* 列表样式 */
+.body-pd-new{
+    padding-top: 0px;
+}
+.body-home-new{
+    background: url("../pc_back/res/img/leftbg.gif") repeat-y scroll 0 0 #f2f2f3;
+    position: relative;
+}
+.footer-new{
+    background-color: #cfd5ef;
+    text-align: center;
+    padding: 15px 0px 15px 0px ;
+}
+.footer-new p{
+    color: #4b4b51;
+    line-height: 25px;
+}
+.body-right-new{
+    background: none repeat scroll 0 0 #f2f2f3;
+    float: left;
+    overflow: hidden;
+    padding-bottom: 25px;
+    width: 100%;
+}
+.body-right-new .tab-product .inventory-new{
+    border: 1px solid #ceced6;
+    margin: -1px 0 0;
+    position: relative;
+    width: 100%;
+}
+.table-hover-1 tr:hover{
+    background-color: #f2f2f2;
+}
+.error {
+    border-radius: 5px;
+    color: #fff;
+    display: none;
+    font-size: 12px;
+    padding: 4px 10px;
+    position: absolute;
+    z-index: 9;
+    background-color: #FF3B30 ;
+}
+.errorem {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: transparent transparent #FF3B30;
+    border-image: none;
+    border-style: solid;
+    border-width: 10px;
+    display: none;
+    height: 0;
+    position: absolute;
+    width: 0;
+    z-index: 9;
+}
+.tab_title_div span{
+    color: #fff;
+    font-size: 14px;
+    padding: 5px 0 10px;
+    display: block;
+    font-weight: bolder;
+    padding: 5px 12px;
+    width: 126px;
+    background-color: #48C4D2;
+    border: 1px solid #48C4D2;
+}
+.tab_search_div{
+    height: 70px;background-color: #f4fdff;
+    border: 1px solid #f4fdff;padding: 15px 30px;
+}
+.tab_search_div .tab_search_table tr td{
+    margin-right: 25px;;
+}
+.tab_search_div .tab_search_table span{
+    float: left; font-size: 14px;margin-top: 8px;margin-right: 8px;font-weight: bolder;
+}
+.tab_search_div .tab_search_table .input_text{
+    border: 1px solid #dbdbdb;  border-radius: 3px;
+    color: #b7b8bb;  height: 33px;
+    line-height: 33px;  overflow: hidden;
+    padding-left: 10px;  padding-right: 12px;  text-overflow: ellipsis;
+    white-space: nowrap;  float: left;
+    margin-right: 20px;
+}
+.tab_search_div .tab_search_table .input_text:hover{
+    border-color: #66afe9;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6);
+    outline: 0 none;
+}
+.selectTable {
+    float: right;
+}
+.selectTable:hover{
+    border-color: #66afe9;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6);
+    outline: 0 none;
+}
+.selectTable dt{
+    width: 140px;
+}
+.selectTable dd{
+    width: 140px;
+}
+.search_btn{ margin-left: 20px;}
+.select_label{ position: relative;width: 200px;}
+.select_label span{
+    float: left;;
+}
+.selectTable dd ul{
+    width: 100%;
+}
+.selectTable dd ul li,.selectTable dd ul li a{
+    margin-right: 0px;width: 100%;
+}
+.selectTable dd ul li,.selectTable dd ul li a{
+    TEXT-DECORATION:none;
+}
+.next-page .page-up,.next-page .page-down {width: 27px;}
+.next-page a{TEXT-DECORATION:none;}
+.selectTable dt {
+    background-position-x: 120px;
+}
+#tabProduct{
+    margin-top: 14px;
+}
+.editGraphic-btn{
+    background: url("../img/server/imgedit.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    display: inline-block;
+    font-size: 0;
+    height: 25px;
+    line-height: 0;
+    width: 25px;
+}
+.editGraphic-btn:hover{
+    background-position: 0 -55px;
+}
+.delGraphic-btn{
+    background: url("../img/server/imgedit.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    display: inline-block;
+    font-size: 0;
+    height: 25px;
+    line-height: 0;
+    width: 25px;
+    background-position: -55px 0;
+    z-index: 1000;
+}
+.delGraphic-btn:hover{
+    background-position: -55px -55px;
+}

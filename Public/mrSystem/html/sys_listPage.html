@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta charset="UTF-8">
+    <title>系统后台列表页</title>
+    <!-- start: MAIN CSS -->
+    <link href="../res/bootstrap/bootstrap-3.3.0/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="../res/component/css/component.css" rel="stylesheet" type="text/css" />
+    <link href="../res/basic/css/system_com.css"  rel="stylesheet" type="text/css" />
+    <!-- end: MAIN CSS -->
+</head>
+<body>
+<div class="background_Frame_div_bg" style=""></div>
+<div id="loading_layer" style="display:none;">
+    <img src="../res/component/img/loading.gif" id="loading_img" alt=""/>
+</div>
+
+<div class="sys_listPage_div">
+    <!--列表 start-->
+    <div class="sys_listPage_frame">
+        <!--列表标题 暂时关闭 start-->
+        <div class="tab_title_div" style="display: none">
+            <span>X-man系统管理</span>
+        </div>
+        <!--列表标题 end-->
+        <!--列表搜索 start-->
+        <div class="tab_search_div">
+            <table class="tab_search_table">
+                <tr>
+                    <td><span class="tab_search_span">名称:</span></td>
+                    <td>
+                        <input type="text" placeholder="请输入文字..." class="input_text_1" />
+                    </td>
+                    <td><span class="tab_search_span">名称名称名称:</span></td>
+                    <td>
+                        <input type="text" placeholder="请输入文字..." class="input_text_1" />
+                    </td>
+                    <td>
+                        <span class="tab_search_span">服务名称:</span>
+                    </td>
+                    <td style="padding-top: 2px;">
+                        <dl class="select_style_1">
+                            <dt class="select_selected">
+                                <span class="selected_value">这是个订阅号</span>
+                                <input type="hidden" value="订阅号"/>
+                            </dt>
+                            <dd class="select_option_dd">
+                                <ul class="select_option_array">
+                                    <li class="select_option">
+                                        <span class="option_value" title="1">选项一</span>
+                                    </li>
+                                    <li class="select_option">
+                                        <span class="option_value">选项二</span>
+                                    </li>
+                                    <li class="select_option">
+                                        <span class="option_value">选项三</span>
+                                    </li>
+                                    <li class="select_option">
+                                        <span class="option_value">选项四</span>
+                                    </li>
+                                </ul>
+                            </dd>
+                        </dl>
+                    </td>
+                    <td>
+                        <label class="search_btn">
+                            <a href="javascript:;"  class="component_btn3 btn_open">
+                                <span>搜索</span>
+                            </a>
+                        </label>
+                    </td>
+                </tr>
+            </table>
+            <div class="search_keyword_input">
+                <div class="input_search_div_1" >
+                    <form action="" method="post" id="form_search_1">
+                        <input type="text" placeholder="关键字搜索" class="input_search_1"  />
+                        <a href="javascript:;" class="a_search_1"></a>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--列表搜索 end-->
+        <!--列表体 start-->
+        <div class="tab_body_div">
+            <div class="container-fluid" >
+                <div class="row">
+                    <table width="98%" style="text-align: center;margin: 0 auto;">
+                        <thead class="tb-head" >
+                        <tr >
+                            <td width="10%">
+                                <label class="input_radio_label checkbox_name_1">
+                                    <span class="input_checkbox_icon"></span>
+                                    <input type="checkbox" name="radio_1" class="input_checkbox_1" />
+                                    <span></span>
+                                </label>
+							</td>
+                            <td width="30%">项目1</td>
+                            <td width="20%">项目2</td>
+                            <td width="20%">项目3</td>
+                            <td width="15%">操作</td>
+                        </tr>
+                        </thead>
+                        <tbody class="tb-body">
+                        <tr>
+                            <td >
+                                <label class="input_radio_label checkbox_name_1">
+                                    <span class="input_checkbox_icon"></span>
+                                    <input type="checkbox" name="radio_1" class="input_checkbox_1" />
+                                    <span></span>
+                                </label>
+                            </td>
+                            <td >2</td>
+                            <td >3</td>
+                            <td >4</td>
+                            <td class="list_option_td">
+                                <a href="javascript:;"  class="list_btn_a">
+                                    <span>编辑</span>
+                                </a>
+                                <a href="javascript:;"  class="list_btn_a list_btn_top">
+                                    <span>置顶</span>
+                                </a>
+                                <a href="javascript:;"  class="list_btn_a list_btn_del">
+                                    <span>删除</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td >
+                                <label class="input_radio_label checkbox_name_1">
+                                    <span class="input_checkbox_icon"></span>
+                                    <input type="checkbox" name="radio_1" class="input_checkbox_1" />
+                                    <span></span>
+                                </label>
+                            </td>
+                            <td >2</td>
+                            <td >3</td>
+                            <td >4</td>
+                            <td class="list_option_td">
+                                <a href="javascript:;"  class="list_btn_a">
+                                    <span>编辑</span>
+                                </a>
+                                <a href="javascript:;"  class="list_btn_a">
+                                    <span>置顶</span>
+                                </a>
+                                <a href="javascript:;"  class="list_btn_a">
+                                    <span>删除</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td >
+                                <label class="input_radio_label checkbox_name_1">
+                                    <span class="input_checkbox_icon"></span>
+                                    <input type="checkbox" name="radio_1" class="input_checkbox_1" />
+                                    <span></span>
+                                </label>
+                            </td>
+                            <td >2</td>
+                            <td >3</td>
+                            <td >4</td>
+                            <td class="list_option_td">
+                                <a href="javascript:;"  class="list_btn_a">
+                                    <span>编辑</span>
+                                </a>
+                                <a href="javascript:;"  class="list_btn_a">
+                                    <span>置顶</span>
+                                </a>
+                                <a href="javascript:;"  class="list_btn_a">
+                                    <span>删除</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td >
+                                <label class="input_radio_label checkbox_name_1">
+                                    <span class="input_checkbox_icon"></span>
+                                    <input type="checkbox" name="radio_1" class="input_checkbox_1" />
+                                    <span></span>
+                                </label>
+                            </td>
+                            <td >2</td>
+                            <td >3</td>
+                            <td >4</td>
+                            <td class="list_option_td">
+                                <a href="javascript:;"  class="list_btn_a">
+                                    <span>编辑</span>
+                                </a>
+                                <a href="javascript:;"  class="list_btn_a">
+                                    <span>置顶</span>
+                                </a>
+                                <a href="javascript:;"  class="list_btn_a">
+                                    <span>删除</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td >
+                                <label class="input_radio_label checkbox_name_1">
+                                    <span class="input_checkbox_icon"></span>
+                                    <input type="checkbox" name="radio_1" class="input_checkbox_1" />
+                                    <span></span>
+                                </label>
+                            </td>
+                            <td >2</td>
+                            <td >3</td>
+                            <td >4</td>
+                            <td class="list_option_td">
+                                <a href="javascript:;"  class="list_btn_a">
+                                    <span>编辑</span>
+                                </a>
+                                <a href="javascript:;"  class="list_btn_a">
+                                    <span>置顶</span>
+                                </a>
+                                <a href="javascript:;"  class="list_btn_a">
+                                    <span>删除</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td >
+                                <label class="input_radio_label checkbox_name_1">
+                                    <span class="input_checkbox_icon"></span>
+                                    <input type="checkbox" name="radio_1" class="input_checkbox_1" />
+                                    <span></span>
+                                </label>
+                            </td>
+                            <td >2</td>
+                            <td >3</td>
+                            <td >4</td>
+                            <td class="list_option_td">
+                                <a href="javascript:;"  class="list_btn_a">
+                                    <span>编辑</span>
+                                </a>
+                                <a href="javascript:;"  class="list_btn_a">
+                                    <span>置顶</span>
+                                </a>
+                                <a href="javascript:;"  class="list_btn_a">
+                                    <span>删除</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td >
+                                <label class="input_radio_label checkbox_name_1">
+                                    <span class="input_checkbox_icon"></span>
+                                    <input type="checkbox" name="radio_1" class="input_checkbox_1" />
+                                    <span></span>
+                                </label>
+                            </td>
+                            <td >2</td>
+                            <td >3</td>
+                            <td >4</td>
+                            <td class="list_option_td">
+                                <a href="javascript:;"  class="list_btn_a">
+                                    <span>编辑</span>
+                                </a>
+                                <a href="javascript:;"  class="list_btn_a">
+                                    <span>置顶</span>
+                                </a>
+                                <a href="javascript:;"  class="list_btn_a">
+                                    <span>删除</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td >
+                                <label class="input_radio_label checkbox_name_1">
+                                    <span class="input_checkbox_icon"></span>
+                                    <input type="checkbox" name="radio_1" class="input_checkbox_1" />
+                                    <span></span>
+                                </label>
+                            </td>
+                            <td >2</td>
+                            <td >3</td>
+                            <td >4</td>
+                            <td class="list_option_td">
+                                <a href="javascript:;"  class="list_btn_a">
+                                    <span>编辑</span>
+                                </a>
+                                <a href="javascript:;"  class="list_btn_a">
+                                    <span>置顶</span>
+                                </a>
+                                <a href="javascript:;"  class="list_btn_a">
+                                    <span>删除</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td >
+                                <label class="input_radio_label checkbox_name_1">
+                                    <span class="input_checkbox_icon"></span>
+                                    <input type="checkbox" name="radio_1" class="input_checkbox_1" />
+                                    <span></span>
+                                </label>
+                            </td>
+                            <td >2</td>
+                            <td >3</td>
+                            <td >4</td>
+                            <td class="list_option_td">
+                                <a href="javascript:;"  class="list_btn_a">
+                                    <span>编辑</span>
+                                </a>
+                                <a href="javascript:;"  class="list_btn_a">
+                                    <span>置顶</span>
+                                </a>
+                                <a href="javascript:;"  class="list_btn_a">
+                                    <span>删除</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td >
+                                <label class="input_radio_label checkbox_name_1">
+                                    <span class="input_checkbox_icon"></span>
+                                    <input type="checkbox" name="radio_1" class="input_checkbox_1" />
+                                    <span></span>
+                                </label>
+                            </td>
+                            <td >2</td>
+                            <td >3</td>
+                            <td >4</td>
+                            <td class="list_option_td">
+                                <a href="javascript:;"  class="list_btn_a">
+                                    <span>编辑</span>
+                                </a>
+                                <a href="javascript:;"  class="list_btn_a">
+                                    <span>置顶</span>
+                                </a>
+                                <a href="javascript:;"  class="list_btn_a">
+                                    <span>删除</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td >
+                                <label class="input_radio_label checkbox_name_1">
+                                    <span class="input_checkbox_icon"></span>
+                                    <input type="checkbox" name="radio_1" class="input_checkbox_1" />
+                                    <span></span>
+                                </label>
+                            </td>
+                            <td >2</td>
+                            <td >3</td>
+                            <td >4</td>
+                            <td class="list_option_td">
+                                <a href="javascript:;"  class="list_btn_a">
+                                    <span>编辑</span>
+                                </a>
+                                <a href="javascript:;"  class="list_btn_a">
+                                    <span>置顶</span>
+                                </a>
+                                <a href="javascript:;"  class="list_btn_a">
+                                    <span>删除</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td >
+                                <label class="input_radio_label checkbox_name_1">
+                                    <span class="input_checkbox_icon"></span>
+                                    <input type="checkbox" name="radio_1" class="input_checkbox_1" />
+                                    <span></span>
+                                </label>
+                            </td>
+                            <td >2</td>
+                            <td >3</td>
+                            <td >4</td>
+                            <td class="list_option_td">
+                                <a href="javascript:;"  class="list_btn_a">
+                                    <span>编辑</span>
+                                </a>
+                                <a href="javascript:;"  class="list_btn_a">
+                                    <span>置顶</span>
+                                </a>
+                                <a href="javascript:;"  class="list_btn_a">
+                                    <span>删除</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td >
+                                <label class="input_radio_label checkbox_name_1">
+                                    <span class="input_checkbox_icon"></span>
+                                    <input type="checkbox" name="radio_1" class="input_checkbox_1" />
+                                    <span></span>
+                                </label>
+                            </td>
+                            <td >2</td>
+                            <td >3</td>
+                            <td >4</td>
+                            <td class="list_option_td">
+                                <a href="javascript:;"  class="list_btn_a">
+                                    <span>编辑</span>
+                                </a>
+                                <a href="javascript:;"  class="list_btn_a">
+                                    <span>置顶</span>
+                                </a>
+                                <a href="javascript:;"  class="list_btn_a">
+                                    <span>删除</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td >
+                                <label class="input_radio_label checkbox_name_1">
+                                    <span class="input_checkbox_icon"></span>
+                                    <input type="checkbox" name="radio_1" class="input_checkbox_1" />
+                                    <span></span>
+                                </label>
+                            </td>
+                            <td >2</td>
+                            <td >3</td>
+                            <td >4</td>
+                            <td class="list_option_td">
+                                <a href="javascript:;"  class="list_btn_a">
+                                    <span>编辑</span>
+                                </a>
+                                <a href="javascript:;"  class="list_btn_a">
+                                    <span>置顶</span>
+                                </a>
+                                <a href="javascript:;"  class="list_btn_a">
+                                    <span>删除</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td >
+                                <label class="input_radio_label checkbox_name_1">
+                                    <span class="input_checkbox_icon"></span>
+                                    <input type="checkbox" name="radio_1" class="input_checkbox_1" />
+                                    <span></span>
+                                </label>
+                            </td>
+                            <td >2</td>
+                            <td >3</td>
+                            <td >4</td>
+                            <td class="list_option_td">
+                                <a href="javascript:;"  class="list_btn_a">
+                                    <span>编辑</span>
+                                </a>
+                                <a href="javascript:;"  class="list_btn_a">
+                                    <span>置顶</span>
+                                </a>
+                                <a href="javascript:;"  class="list_btn_a">
+                                    <span>删除</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td >
+                                <label class="input_radio_label checkbox_name_1">
+                                    <span class="input_checkbox_icon"></span>
+                                    <input type="checkbox" name="radio_1" class="input_checkbox_1" />
+                                    <span></span>
+                                </label>
+                            </td>
+                            <td >2</td>
+                            <td >3</td>
+                            <td >4</td>
+                            <td class="list_option_td">
+                                <a href="javascript:;"  class="list_btn_a">
+                                    <span>编辑</span>
+                                </a>
+                                <a href="javascript:;"  class="list_btn_a">
+                                    <span>置顶</span>
+                                </a>
+                                <a href="javascript:;"  class="list_btn_a">
+                                    <span>删除</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td >
+                                <label class="input_radio_label checkbox_name_1">
+                                    <span class="input_checkbox_icon"></span>
+                                    <input type="checkbox" name="radio_1" class="input_checkbox_1" />
+                                    <span></span>
+                                </label>
+                            </td>
+                            <td >2</td>
+                            <td >3</td>
+                            <td >4</td>
+                            <td class="list_option_td">
+                                <a href="javascript:;"  class="list_btn_a">
+                                    <span>编辑</span>
+                                </a>
+                                <a href="javascript:;"  class="list_btn_a">
+                                    <span>置顶</span>
+                                </a>
+                                <a href="javascript:;"  class="list_btn_a">
+                                    <span>删除</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td >
+                                <label class="input_radio_label checkbox_name_1">
+                                    <span class="input_checkbox_icon"></span>
+                                    <input type="checkbox" name="radio_1" class="input_checkbox_1" />
+                                    <span></span>
+                                </label>
+                            </td>
+                            <td >2</td>
+                            <td >3</td>
+                            <td >4</td>
+                            <td class="list_option_td">
+                                <a href="javascript:;"  class="list_btn_a">
+                                    <span>编辑</span>
+                                </a>
+                                <a href="javascript:;"  class="list_btn_a">
+                                    <span>置顶</span>
+                                </a>
+                                <a href="javascript:;"  class="list_btn_a">
+                                    <span>删除</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td >
+                                <label class="input_radio_label checkbox_name_1">
+                                    <span class="input_checkbox_icon"></span>
+                                    <input type="checkbox" name="radio_1" class="input_checkbox_1" />
+                                    <span></span>
+                                </label>
+                            </td>
+                            <td >2</td>
+                            <td >3</td>
+                            <td >4</td>
+                            <td class="list_option_td">
+                                <a href="javascript:;"  class="list_btn_a">
+                                    <span>编辑</span>
+                                </a>
+                                <a href="javascript:;"  class="list_btn_a">
+                                    <span>置顶</span>
+                                </a>
+                                <a href="javascript:;"  class="list_btn_a">
+                                    <span>删除</span>
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!--列表体 end-->
+        <!--列表分页条 start-->
+        <div class="tab_page_div">
+            <div class="tab_page_div_left">
+                <label class="input_radio_label">
+                    <label class="input_radio_label checkbox_name_1">
+                        <span class="input_checkbox_icon"></span>
+                        <input type="checkbox" name="radio_1" class="input_checkbox_1" />
+                        <span>全选</span>
+                    </label>
+                </label>
+            </div>
+            <div class="tab_page_div_right">
+                <div class="page_style_1_div" >
+                    <a class="page_left">&lt;</a>
+                    <a class="page_now_no">1</a>
+                    <a class="page_next_no">2</a>
+                    <a class="page_next_no">3</a>
+                    <a class="page_next_no">4</a>
+                    <a class="page_next_no">5</a>
+                    <a class="page_next_no">6</a>
+                    <a class="page_next_no">7</a>
+                    <a class="page_next_no">8</a>
+                    <a class="page_next_no">9</a>
+                    <a class="page_other_no"><span>&#183;&#183;&#183;</span></a>
+                    <a class="page_next_big_no">999</a>
+                    <a class="page_to_no">
+                        <input type="text" value="1" class="page_value" />
+                    </a>
+                    <a class="page_last_no">/13</a>
+                    <a class="page_left">&gt;</a>
+                </div>
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+        <!--列表分页条 end-->
+    </div>
+    <!--列表 end-->
+</div>
+<div class="return_top_div">
+    <a href="javascript:;" class="component_btn5 btn_go_top">
+    </a>
+</div>
+
+
+<!-- start: MAIN JAVASCRIPTS -->
+<!--[if lt IE 9]>
+<script src="res/basic/js/excanvas.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="../res/basic/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="../res/bootstrap/bootstrap-3.3.0/js/bootstrap.js"></script>
+<script type="text/javascript" src="../res/component/js/component.js" ></script>
+<script type="text/javascript" >
+    startLoading();
+    $(function(){
+        //启用组件 风格1下拉框
+        componentFunction.select_style_1();
+        //启用组件 风格1复选框 checkbox_array为初始化数组 1为选中,下标代表第几个复选框
+        var checkbox_array=new Array(0,1);
+        //checkbox_name_1为复选框的外围class的name
+        componentFunction.checkbox_style_1("checkbox_name_1",null);
+        //确认框弹出层
+        $(".list_btn_del").click(function(){
+            componentFunction.confirmFrame('删除吗?',function(){alert('回调成功');});
+        });
+        //提示框弹出层
+        $(".list_btn_top").click(function(){
+            componentFunction.alertFrame('置顶成功!',function(){alert('回调成功');});
+        });
+        //返回顶部
+        componentFunction.returnTop();
+    });
+</script>
+<!-- end: MAIN JAVASCRIPTS -->
+</body>
+</html>
