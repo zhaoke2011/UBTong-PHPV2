@@ -1,39 +1,65 @@
 <?php
-// +----------------------------------------------------------------------
-// | OneThink [ WE CAN DO IT JUST THINK IT ]
-// +----------------------------------------------------------------------
-// | Copyright (c) 2013 http://www.onethink.cn All rights reserved.
-// +----------------------------------------------------------------------
-// | Author: 麦当苗儿 <zuojiazi@vip.qq.com> <http://www.zjzit.cn>
-// +----------------------------------------------------------------------
-
-if(version_compare(PHP_VERSION,'5.3.0','<'))  die('require PHP > 5.3.0 !');
 
 /**
- * 系统调试设置
- * 项目正式部署后请设置为false
+ * 项目入口文件
+ * Some rights reserved：www.simplewind.net
  */
-define ( 'APP_DEBUG', true );
-
-/**
- * 应用目录设置
- * 安全期间，建议安装调试完成后移动到非WEB目录
- */
-define ( 'APP_PATH', './Application/' );
-
-if(!is_file(APP_PATH . 'User/Conf/config.php')){
-	header('Location: ./install.php');
-	exit;
+if (ini_get('magic_quotes_gpc')) {
+	function stripslashesRecursive(array $array){
+		foreach ($array as $k => $v) {
+			if (is_string($v)){
+				$array[$k] = stripslashes($v);
+			} else if (is_array($v)){
+				$array[$k] = stripslashesRecursive($v);
+			}
+		}
+		return $array;
+	}
+	$_GET = stripslashesRecursive($_GET);
+	$_POST = stripslashesRecursive($_POST);
 }
 
-/**
- * 缓存目录设置
- * 此目录必须可写，建议移动到非WEB目录
- */
-define ( 'RUNTIME_PATH', './Runtime/' );
+//开启调试模式
+define("APP_DEBUG", true);
+//网站当前路径
+define('SITE_PATH', getcwd());
+//项目名称，不可更改
+define('APP_NAME', 'simplewind');
+//项目路径，不可更改
+define('APP_PATH', SITE_PATH . '/simplewind/');
+//项目相对路径，不可更改
+define('SPAPP_PATH',   'simplewind/');
+//
+define('SPAPP',   'application/');
+//项目资源目录，不可更改
+define('SPSTATIC',   'statics/');
+//定义缓存存放路径
+define("RUNTIME_PATH", SITE_PATH . "/data/runtime/");
+//版本号
+define("SIMPLEWIND_CMF_VERSION", 'V1.1.3');
+//uc client root
+define("UC_CLIENT_ROOT", './uc_client/');
 
-/**
- * 引入核心入口
- * ThinkPHP亦可移动到WEB以外的目录
- */
-require './ThinkPHP/ThinkPHP.php';
+if(function_exists('saeAutoLoader') || isset($_SERVER['HTTP_BAE_ENV_APPID'])){
+	
+}else{
+	if(file_exists("install") && !file_exists("install/install.lock")){
+		header("Location:./install");
+		exit();
+	}
+}
+
+if(file_exists("./conf/uc_config.php")){
+	include './conf/uc_config.php';
+}
+
+if(APP_DEBUG){
+	error_reporting(E_ALL);
+}
+
+//载入框架核心文件
+define('THINK_PATH',SPAPP_PATH.'Core/');
+define('ENGINE_NAME','cluster');
+require THINK_PATH.'ThinkPHP.php';
+
+?>

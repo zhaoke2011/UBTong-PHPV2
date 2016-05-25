@@ -1,8 +1,0 @@
-/* 页面加载效果 */
-.hidenELE, .hidenELE body {overflow:hidden}
-.hidenELE body > * {visibility:hidden}
-.hidenELE #loading_layer {visibility:visible;display:block !important;position:absolute;top:0;left:0;width:100%;height:3000px;background:#fff;z-index:10000}
-.hidenELE #loading_layer .spinner {position:fixed;top:100%;}
-.hidenELE #loading_layer #loading_img {position:fixed;top:100%;}
-.hidenELE .tab-pane {display:block !important}
-.hidenELE .hide {display: inherit}

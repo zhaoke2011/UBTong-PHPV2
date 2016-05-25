@@ -1,0 +1,15 @@
+[ 2016-05-25T16:52:31+08:00 ] 127.0.0.1 /index.php?g=admin&m=setting&a=site_post
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.007078s ]
+INFO: CheckLang Behavior ::run [ RunTime:0.022066s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.029454s ]
+SQL: SHOW COLUMNS FROM `sp_users` [ RunTime:0.020445s ]
+SQL: SELECT * FROM `sp_users` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.001714s ]
+SQL: SHOW COLUMNS FROM `sp_options` [ RunTime:0.019830s ]
+SQL: SELECT * FROM `sp_options` WHERE ( option_name='site_options' ) LIMIT 1   [ RunTime:0.001491s ]
+SQL: UPDATE `sp_options` SET `option_id`=2,`option_name`='site_options',`option_value`='{\"site_name\":\"\\u4f18\\u767e\\u901a\\u540e\\u53f0\\u7ba1\\u7406\",\"site_host\":\"http:\\/\\/127.0.0.1\\/\",\"site_root\":\"\\/\",\"site_tpl\":\"simplebootx\",\"site_adminstyle\":\"flat\",\"site_icp\":\"\",\"site_admin_email\":\"153811610@qq.com\",\"site_tongji\":\"\",\"site_copyright\":\"\",\"site_seo_title\":\"\\u4f18\\u767e\\u901a\\u540e\\u53f0\\u7ba1\\u7406\",\"site_seo_keywords\":\"\",\"site_seo_description\":\"ThinkCMF\\u662f\\u7b80\\u7ea6\\u98ce\\u7f51\\u7edc\\u79d1\\u6280\\u53d1\\u5e03\\u7684\\u4e00\\u6b3e\\u7528\\u4e8e\\u5feb\\u901f\\u5f00\\u53d1\\u7684\\u5185\\u5bb9\\u7ba1\\u7406\\u6846\\u67b6\",\"urlmode\":\"0\",\"html_suffix\":\"\"}' WHERE ( option_name='site_options' ) [ RunTime:0.001286s ]
+NOTIC: [2] unlink(E:\PHP52\ThinkCMF/data/runtime/Data/cmf_settings.php) [<a href='function.unlink'>function.unlink</a>]: No such file or directory E:\PHP52\ThinkCMF\simplewind\Core\Common\functions.php 第 413 行.
+SQL: SELECT * FROM `sp_options` WHERE ( option_name='cmf_settings' ) LIMIT 1   [ RunTime:0.001373s ]
+SQL: UPDATE `sp_options` SET `option_name`='cmf_settings',`option_value`='{\"banned_usernames\":\"\"}' WHERE ( option_name='cmf_settings' ) [ RunTime:0.001195s ]
+NOTIC: [8] Undefined index:  data E:\PHP52\ThinkCMF\simplewind\Lib\Action\AppframeAction.class.php 第 61 行.
+

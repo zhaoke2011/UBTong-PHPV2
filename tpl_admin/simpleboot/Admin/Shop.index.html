@@ -1,0 +1,72 @@
+<admintpl file="header"/>
+
+<body>
+	<!-- 标题栏 -->
+<!-- 	<div class="main-title">
+		<h2>待审核({$count})</h2>
+	</div> -->
+
+    <div class="tools auth-botton">
+      <!--   <button class="btn" target-form="ids" onclick="tosubmit1();">取 消 冻 结</button> -->
+        <button class="btn ajax-post confirm" target-form="ids" onclick="tosubmit();">冻 结</button>
+    </div>
+<script>
+	function tosubmit(){
+		$('#form1').submit();
+		$('#form1').attr('action','');
+	}
+</script>
+	<!-- 数据列表 -->
+	<div class="data-table table-striped">
+			<table class="">
+    <thead>
+        <tr>
+		<th class="row-selected row-selected"><input class="check-all" type="checkbox"/></th>
+		<th class="">编号</th>
+		<th class="">店铺账号</th>
+		<th class="">密码</th>
+		<th class="">微信公众号</th>
+		<th class="">注册时间</th>
+		<th class="">过期时间</th>
+		<th class="">状态</th>
+		<th class="">操作</th>
+		</tr>
+    </thead>
+    <tbody>
+    	<form action="{:U('Shop/belfreeze')}" method="post" id="form1">
+    	
+		<volist name="shop" id="vo">
+		<tr>
+            <td><input class="ids" type="checkbox" name="ids[]" value="{$vo.as_id}" /></td>
+
+			<td>{$vo.as_id}</td>
+			<td>{$vo.account}</td>
+			<td>{$vo.pwd}</td>
+			<td>{$vo.wecha_name}</td>
+			<td>{$vo.register_time|date="Y-m-d H:i:s",###}</td>
+			<td>{$vo.out_time|date="Y-m-d H:i:s",###}</td>
+			<if condition="$vo.out_time lt $time">
+			<td>店铺已过期</td>
+			<else />
+			<if condition="$vo.status eq 0">
+			<td>正常</td>
+			<else />
+			<td>冻结</td>
+			</if>
+			</if>
+			<td><if condition="$vo.status eq 0"><a href="{:U('Shop/freeze?id='.$vo['as_id'])}" class="confirm ajax-get">冻结</a></if>
+			<if condition="$vo.status eq 1"><a href="{:U('Shop/nofreeze?id='.$vo['as_id'])}" class="confirm ajax-get">取消冻结</a></if>
+			<a href="{:U('Shop/reset?id='.$vo['as_id'])}" class="confirm ajax-get">重置密码</a>
+            </td>
+		</tr>
+		</volist>
+
+		</form>
+	</tbody>
+    </table> 
+        
+	</div>
+    <div class="page">
+        {$_page}
+    </div>
+</body>
