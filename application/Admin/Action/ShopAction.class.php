@@ -4,22 +4,22 @@ class ShopAction extends AdminbaseAction {
         parent::_initialize();
         $this->initMenu();
     }
-    //显示店铺信息 欧阳龙泉 05.17
+    //显示店铺信息
     public function index(){
        
-        // $time=time();
-        // $ashop=M('a_shop')->select();
-        // $this->assign('time',$time);
-        // $this->assign('shop',$ashop);
+        $time=time();
+        $shop=M('shop')->select();
+        $this->assign('time',$time);
+        $this->assign('shop',$shop);
     	$this->display();
     }
-    //计算两个时间戳的时间长度 欧阳龙泉 05.17
+    //计算两个时间戳的时间长度 
     protected function daysDiff($timestamp1, $timestamp2) {
         $date1 = strtotime(date('Y-m-d', $timestamp1)); 
         $date2 = strtotime(date('Y-m-d', $timestamp2));
         return intval(($date1-$date2)/86400);
     }
-    //重置密码 欧阳龙泉 05.17
+    //重置密码 
     public function reset(){
         $id=$_GET['id'];
         $data['pwd']=123456;
@@ -30,7 +30,7 @@ class ShopAction extends AdminbaseAction {
             $this->error('重置密码失败');
         }
     }
-    //冻结账号 欧阳龙泉 05.17
+    //冻结账号
     public function freeze(){
         $id=$_GET['id'];
         $data['status']=1;
@@ -42,7 +42,7 @@ class ShopAction extends AdminbaseAction {
             $this->error('冻结失败');
         }
     }
-    //取消冻结账号 欧阳龙泉 05.17
+    //取消冻结账号
     public function nofreeze(){
         $id=$_GET['id'];
         $data['status']=0;
@@ -55,7 +55,7 @@ class ShopAction extends AdminbaseAction {
             $this->error('取消冻结失败');
         }
     }
-    //批量冻结 欧阳龙泉 05.17
+    //批量冻结
     public function belfreeze(){
         $ids=I('post.ids');
         $data['status']=1;

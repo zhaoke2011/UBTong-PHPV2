@@ -52,7 +52,7 @@ class PublicAction extends AdminbaseAction {
     		}
     		
     		$result = $user->where($where)->find();
-    		if($result != null && $result['user_type']==1){
+    		if($result != null){
     			if($result['user_pass'] == sp_password($pass)){
     				//登入成功页面跳转
     				$_SESSION["ADMIN_ID"]=$result["id"];
