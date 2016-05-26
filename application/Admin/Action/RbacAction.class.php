@@ -17,8 +17,10 @@ class RbacAction extends AdminbaseAction {
      * 角色管理，有add添加，edit编辑，delete删除
      */
     public function index() {
-        $data = $this->Role->order(array("listorder" => "asc", "id" => "desc"))->select();
+        $data = $this->Role->order(array("listorder" => "asc", "id" => "asc"))->select();
+        $level=M('users')->where('id='.$_SESSION["ADMIN_ID"])->getfield('user_level');
         $this->assign("roles", $data);
+        $this->assign("level", $level);
         $this->display();
     }
 
@@ -34,6 +36,8 @@ class RbacAction extends AdminbaseAction {
      */
     public function roleadd_post() {
     	if (IS_POST) {
+            $level=M('users')->where('id='.$_SESSION["ADMIN_ID"])->getfield('user_level');
+            $_POST['role_level']=$level+1;
     		if ($this->Role->create()) {
     			if ($this->Role->add()!==false) {
     				$this->assign("jumpUrl", U("Rbac/rolemanage"));

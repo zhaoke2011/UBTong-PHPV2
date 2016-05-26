@@ -34,7 +34,7 @@
             </td>
             <td>{$vo.user_email}</td>
             <td>
-	            <if condition="$vo['id'] eq 1">
+	            <if condition="$vo['user_level'] lt $level or $vo['user_level'] eq $level">
 	            <font color="#cccccc">修改</font> | 
 	            <font color="#cccccc">删除</font>
 	            <else />

@@ -8,13 +8,15 @@ class UserAction extends AdminbaseAction{
 		$this->role_obj = D("Role");
 	}
 	function index(){
-		$users=$this->users_obj->where(array("user_type"=>1))->select();
+		$users=$this->users_obj->select();
 		$roles_src=$this->role_obj->select();
 		$roles=array();
 		foreach ($roles_src as $r){
 			$roleid=$r['id'];
 			$roles["$roleid"]=$r;
 		}
+		$level=$this->users_obj->where('id='.$_SESSION["ADMIN_ID"])->getfield('user_level');
+		$this->assign("level",$level);
 		$this->assign("roles",$roles);
 		$this->assign("users",$users);
 		$this->display();
@@ -22,14 +24,18 @@ class UserAction extends AdminbaseAction{
 	
 	
 	function add(){
-		$roles=$this->role_obj->where("status=1")->select();
+		$level=$this->users_obj->where('id='.$_SESSION["ADMIN_ID"])->getfield('user_level');
+		$roles=$this->role_obj->where("status=1 and role_level>".$level)->select();
 		$this->assign("roles",$roles);
 		$this->display();
 	}
 	
 	function add_post(){
 		if(IS_POST){
+			$level=$this->users_obj->where('id='.$_SESSION["ADMIN_ID"])->getfield('user_level');
+				$_POST['user_level']=$level+1;
 			if ($this->users_obj->create()) {
+				
 				if ($this->users_obj->add()!==false) {
 					$this->success("添加成功！", U("user/index"));
 				} else {
