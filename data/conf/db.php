@@ -5,9 +5,9 @@
  */
 return array(
     'DB_TYPE' => 'mysql',
-    'DB_HOST' => 'localhost',
+    'DB_HOST' => '192.168.1.77',
     'DB_NAME' => 'thinkcmf',
-    'DB_USER' => 'root',
+    'DB_USER' => 'ltj',
     'DB_PWD' => '123456',
     'DB_PORT' => '3306',
     'DB_PREFIX' => 'sp_',

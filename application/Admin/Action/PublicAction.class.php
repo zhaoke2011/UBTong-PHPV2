@@ -11,12 +11,12 @@ class PublicAction extends AdminbaseAction {
     	if(isset($_SESSION['ADMIN_ID'])){//已经登录
     		$this->success(L('LOGIN_SUCCESS'),U("Index/index"));
     	}else{
-    		if(empty($_SESSION['adminlogin'])){
-    			header("Content-Type:text/html; charset=utf-8");
-    			$this->error("请从后台管理入口登录!",__ROOT__."/");
-    		}else{
+    		// if(empty($_SESSION['adminlogin'])){
+    		// 	header("Content-Type:text/html; charset=utf-8");
+    		// 	$this->error("请从后台管理入口登录!",__ROOT__."/");
+    		// }else{
     			$this->display();
-    		}
+    		// }
     		
     	}
     }
