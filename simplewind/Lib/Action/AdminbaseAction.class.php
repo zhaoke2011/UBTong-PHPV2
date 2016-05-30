@@ -126,7 +126,42 @@ class AdminbaseAction extends AppframeAction {
     public function _ErrorLog() {
         
     }
-
+    //读取自己权限菜单
+    public function myMenu($roleid) {
+         $result =M()->query("select * from sp_menu m,sp_access ac where m.app=ac.g and m.model=ac.m and m.action=ac.a and ac.role_id=".$roleid." and m.parentid=0");
+        $key1=count($result);
+        if ($key1>0) {
+            $str1='';
+           for ($i=0; $i < $key1; $i++) { 
+            if ($str1=='') {
+               $str1=$result[$i]['id'];
+            }
+            else{
+                  $str1=$str1.','.$result[$i]['id'];
+                }
+            }
+            $newresult=M('menu')->where('parentid in ('.$str1.')')->select();
+            $result=array_merge_recursive($result,$newresult);
+            $key2=count($newresult);
+            if ($key2>0) {
+                $str2='';
+                for ($j=0; $j < $key2; $j++) { 
+                    if ($str2=='') {
+                       $str2=$newresult[$j]['id'];
+                    }
+                    else{
+                       $str2=$str2.','.$newresult[$j]['id'];
+                    }
+                }
+                 $nnewresult=M('menu')->where('parentid in ('.$str2.')')->select();
+                 $result=array_merge_recursive($result,$nnewresult);
+              }
+           }
+           
+           
+        }
+        return $result;
+    }
     /**
      * 初始化后台菜单
      */

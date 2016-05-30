@@ -202,7 +202,8 @@ class MenuModel extends CommonModel {
      */
     public function menu_cache($data = null) {
         if (empty($data)) {
-            $data = $this->select();
+
+            $data =$this->select();
             F("Menu", $data);
         } else {
             F("Menu", $data);

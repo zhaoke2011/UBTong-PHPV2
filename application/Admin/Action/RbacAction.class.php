@@ -132,14 +132,24 @@ class RbacAction extends AdminbaseAction {
         $menu = new Tree();
         $menu->icon = array('│ ', '├─ ', '└─ ');
         $menu->nbsp = '&nbsp;&nbsp;&nbsp;';
-        $result = $this->initMenu();
-        $newmenus=array();
+         // $result = $this->initMenu();
+        // $result = D("Menu")->get_tree(0);
+        $role_id=M('users')->where('id='.$_SESSION["ADMIN_ID"])->getfield('role_id');
+        if ($role_id!=1) 
+        {
+            $result=$this->myMenu($role_id);
+       } 
+       else
+       {
+            $result = $this->initMenu();
+       }
+         dump($result);
+         exit();
         $priv_data = $this->Access->where(array("role_id" => $roleid))->select(); //获取权限表数据
         foreach ($result as $m){
         	$newmenus[$m['id']]=$m;
         	
         }
-        
         foreach ($result as $n => $t) {
         	$result[$n]['checked'] = ($this->_is_checked($t, $roleid, $priv_data)) ? ' checked' : '';
         	$result[$n]['level'] = $this->_get_level($t['id'], $newmenus);
@@ -149,8 +159,9 @@ class RbacAction extends AdminbaseAction {
                        <td style='padding-left:30px;'>\$spacer<input type='checkbox' name='menuid[]' value='\$id' level='\$level' \$checked onclick='javascript:checknode(this);'> \$name</td>
 	    			</tr>";
         $menu->init($result);
-        $categorys = $menu->get_tree(0, $str);
-        
+          // $categorys =D("Menu")->admin_menu();
+        $categorys = $menu->get_tree(0,$str);
+       
         $this->assign("categorys", $categorys);
         $this->assign("roleid", $roleid);
         $this->display();
@@ -166,6 +177,8 @@ class RbacAction extends AdminbaseAction {
     		if(!$roleid){
     			$this->error("需要授权的角色不存在！");
     		}
+            dump($_POST['menuid']);
+            exit();
     		if (is_array($_POST['menuid']) && count($_POST['menuid'])>0) {
     			//取得菜单数据
     			$menuinfo = M("Menu")->select();
@@ -191,7 +204,8 @@ class RbacAction extends AdminbaseAction {
     			}
     			C('TOKEN_ON', true);
     			$this->Access->where("role_id=$roleid")->delete();
-    
+                // dump($addauthorize);
+                // exit();
     			if($this->Access->rbac_authorize($roleid,$addauthorize)){
     				$this->success("授权成功！", U("Rbac/index"));
     			}else{

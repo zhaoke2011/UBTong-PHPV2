@@ -69,6 +69,7 @@ class Tree {
      */
     public function get_child($myid) {
         $a = $newarr = array();
+        // $this->arr=D("Menu")->menu_json();
         if (is_array($this->arr)) {
             foreach ($this->arr as $id => $a) {
                 if ($a['parentid'] == $myid)
@@ -112,6 +113,9 @@ class Tree {
         $number = 1;
         //一级栏目
         $child = $this->get_child($myid);
+        // dump($this->arr);
+        // exit();
+
         if (is_array($child)) {
             $total = count($child);
             foreach ($child as $id => $value) {
@@ -163,7 +167,8 @@ class Tree {
      */
     public function get_tree_multi($myid, $str, $sid = 0, $adds = '') {
         $number = 1;
-        $child = $this->get_child($myid);
+         $child = $this->get_child($myid);
+
         if (is_array($child)) {
             $total = count($child);
             foreach ($child as $id => $a) {
