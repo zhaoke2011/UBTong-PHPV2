@@ -157,9 +157,6 @@ class AdminbaseAction extends AppframeAction {
                  $result=array_merge_recursive($result,$nnewresult);
               }
            }
-           
-           
-        }
         return $result;
     }
     /**

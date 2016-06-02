@@ -143,8 +143,6 @@ class RbacAction extends AdminbaseAction {
        {
             $result = $this->initMenu();
        }
-         dump($result);
-         exit();
         $priv_data = $this->Access->where(array("role_id" => $roleid))->select(); //获取权限表数据
         foreach ($result as $m){
         	$newmenus[$m['id']]=$m;
@@ -177,8 +175,6 @@ class RbacAction extends AdminbaseAction {
     		if(!$roleid){
     			$this->error("需要授权的角色不存在！");
     		}
-            dump($_POST['menuid']);
-            exit();
     		if (is_array($_POST['menuid']) && count($_POST['menuid'])>0) {
     			//取得菜单数据
     			$menuinfo = M("Menu")->select();

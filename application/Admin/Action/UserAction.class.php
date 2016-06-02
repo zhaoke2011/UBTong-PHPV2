@@ -50,7 +50,8 @@ class UserAction extends AdminbaseAction{
 	
 	function edit(){
 		$id= intval(I("get.id"));
-		$roles=$this->role_obj->where("status=1")->select();
+		$level=$this->users_obj->where('id='.$_SESSION["ADMIN_ID"])->getfield('user_level');
+		$roles=$this->role_obj->where("status=1 and role_level>".$level)->select();
 		$this->assign("roles",$roles);
 			
 		$user=$this->users_obj->where(array("id"=>$id))->find();

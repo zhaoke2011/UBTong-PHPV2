@@ -1,5 +1,34 @@
 <?php
-
+//通过店铺id获取店铺名称
+function getshopidbyname($shop_id){
+    $shop_name=M('a_shop')->where('as_id='.$shop_id)->getField('shop_name');
+    return $shop_name;
+}
+function getoidbystatus($o_id){
+    $orderinfo=M('order')->where('o_id='.$o_id)->find();
+   if ($orderinfo['order_status']==0) {
+      if ($orderinfo['pay_status']==0) {
+          return '等待买家支付';
+      }
+      else{
+            if($orderinfo['is_deliver']==0){
+                return '等待商家发货';
+            }
+            else{
+                return '等待买家确认';
+            }
+      }
+   }
+   else if($orderinfo['order_status']==1){
+        return '交易成功';
+   }
+   else if($orderinfo['order_status']==2){
+        return '已退款';
+   }
+   else{
+        return '交易关闭';
+   }
+}
 function sp_get_url_route(){
 	$apps=Dir::getList(SPAPP);
 	$host=(is_ssl() ? 'https' : 'http')."://".$_SERVER['HTTP_HOST'];
