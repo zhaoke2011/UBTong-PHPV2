@@ -1,72 +1,107 @@
 <admintpl file="header"/>
-
-<body>
-	<!-- 标题栏 -->
-<!-- 	<div class="main-title">
-		<h2>待审核({$count})</h2>
-	</div> -->
-
-    <div class="tools auth-botton">
-      <!--   <button class="btn" target-form="ids" onclick="tosubmit1();">取 消 冻 结</button> -->
-        <button class="btn ajax-post confirm" target-form="ids" onclick="tosubmit();">冻 结</button>
+<body class="J_scroll_fixed">
+<div class="wrap J_check_wrap">
+  <ul class="nav nav-tabs">
+     <li class="active"><a href="#">所有店铺</a></li>
+     <li><a href="#"  target="_self">添加店铺</a></li>
+  </ul>
+  <form class="well form-search" method="post" action="{:u('AdminPost/index')}">
+    <div class="search_type cc mb10">
+      <div class="mb10"> 
+        <span class="mr20">店铺账号:</span>
+         <input type="text" class="input length_2" name="keyword" style="width:200px;" value="{$formget.keyword}" placeholder="请输入店铺账号">
+         &nbsp; &nbsp; <span class="mr20">店铺名称:</span>
+        <input type="text" class="input length_2" name="keyword" style="width:200px;" value="{$formget.keyword}" placeholder="请输入店铺名称">
+        <input type="submit" class="btn" value="搜索"/>
+        </span>
+      </div>
     </div>
+  </form>
+  <div class="common-form">
+    <form method="post" class="J_ajaxForm" action="#">
+      <div class="table_list">
+	    <table width="100%" class="table table-hover">
+	       <thead>
+	        <tr>
+	          <th class="check-header"><label class="checkbox inline" for="check_all"><input type="checkbox" class="J_check_all" data-direction="y" data-checklist="J_check_y" id="check_all"></label></th>
+	          <th width="6%">编号</th>
+	          <th width="10%">店铺账号</th>
+	          <th width="10%">密码</th>
+	          <th width="10%">微信公众号</th>
+	          <th width="15%">注册时间</th>
+	          <th width="15%">过期时间</th>
+	          <th width="10%">状态</th>
+	          <th width="40%" style="padding-left:10px;">操作</th>
+	        </tr>
+	       </thead>
+	    <tbody>
+	       <tr>
+		      <td class="check hidden-xs"><label><input type="checkbox" class="J_check_all" data-direction="x" data-checklist="J_check_x"></label></td>
+		      <td>1</td>
+		      <td>Robert</td>
+		      <td>Kelso</td>
+		      <td>robert@gmail.com</td>
+		      <td>2016-05-04 11:07:14-2013</td>
+		      <td>2016-05-04 11:07:14</td>
+		      <td>正常</td>
+		      <td>
+		        <a class="table-actions" href="#">修改</a>| 
+		        <a class="table-actions" href="#">禁用</a>| 
+		        <a class="table-actions" href="#">充值</a>| 
+		        <a class="table-actions"  href="#">重置密码</a>
+		      </td>
+		   </tr>
+	    </tbody>
+	  </table>
+	     <div class="pagination">{$Page}</div>
+  	     </div>
+    </form>
+  </div>
+</div>
+
+<script src="__ROOT__/statics/js/common.js"></script>
 <script>
-	function tosubmit(){
-		$('#form1').submit();
-		$('#form1').attr('action','');
-	}
+
+function refersh_window() {
+    var refersh_time = getCookie('refersh_time');
+    if (refersh_time == 1) {
+        window.location="{:u('AdminPost/index',$formget)}";
+    }
+}
+setInterval(function(){
+	refersh_window();
+}, 2000);
+$(function () {
+	setCookie("refersh_time",0);
+    Wind.use('ajaxForm','artDialog','iframeTools', function () {
+        //批量移动
+        $('#J_Content_remove').click(function (e) {
+            var str = 0;
+            var id = tag = '';
+            $("input[name='ids[]']").each(function () {
+                if ($(this).attr('checked')) {
+                    str = 1;
+                    id += tag + $(this).val();
+                    tag = ',';
+                }
+            });
+            if (str == 0) {
+				art.dialog.through({
+					id:'error',
+					icon: 'error',
+					content: '您没有勾选信息，无法进行操作！',
+					cancelVal: '关闭',
+					cancel: true
+				});
+                return false;
+            }
+            var $this = $(this);
+            art.dialog.open("__ROOT__/index.php?g=portal&m=AdminPost&a=move&ids=" + id, {
+                title: "批量移动",
+                width:"80%"
+            });
+        });
+    });
+});
 </script>
-	<!-- 数据列表 -->
-	<div class="data-table table-striped">
-			<table class="">
-    <thead>
-        <tr>
-		<th class="row-selected row-selected"><input class="check-all" type="checkbox"/></th>
-		<th class="">编号</th>
-		<th class="">店铺账号</th>
-		<th class="">密码</th>
-		<th class="">微信公众号</th>
-		<th class="">注册时间</th>
-		<th class="">过期时间</th>
-		<th class="">状态</th>
-		<th class="">操作</th>
-		</tr>
-    </thead>
-    <tbody>
-    	<form action="{:U('Shop/belfreeze')}" method="post" id="form1">
-    	
-		<volist name="shop" id="vo">
-		<tr>
-            <td><input class="ids" type="checkbox" name="ids[]" value="{$vo.as_id}" /></td>
-
-			<td>{$vo.as_id}</td>
-			<td>{$vo.account}</td>
-			<td>{$vo.pwd}</td>
-			<td>{$vo.wecha_name}</td>
-			<td>{$vo.register_time|date="Y-m-d H:i:s",###}</td>
-			<td>{$vo.out_time|date="Y-m-d H:i:s",###}</td>
-			<if condition="$vo.out_time lt $time">
-			<td>店铺已过期</td>
-			<else />
-			<if condition="$vo.status eq 0">
-			<td>正常</td>
-			<else />
-			<td>冻结</td>
-			</if>
-			</if>
-			<td><if condition="$vo.status eq 0"><a href="{:U('Shop/freeze?id='.$vo['as_id'])}" class="confirm ajax-get">冻结</a></if>
-			<if condition="$vo.status eq 1"><a href="{:U('Shop/nofreeze?id='.$vo['as_id'])}" class="confirm ajax-get">取消冻结</a></if>
-			<a href="{:U('Shop/reset?id='.$vo['as_id'])}" class="confirm ajax-get">重置密码</a>
-            </td>
-		</tr>
-		</volist>
-
-		</form>
-	</tbody>
-    </table> 
-        
-	</div>
-    <div class="page">
-        {$_page}
-    </div>
 </body>
