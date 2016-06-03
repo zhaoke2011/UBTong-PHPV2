@@ -1,0 +1,109 @@
+<admintpl file="header"/>
+<body class="J_scroll_fixed">
+<div class="wrap J_check_wrap"> 
+  <form class="well form-search" method="post" action="{:U('Shop/fmsearch')}">
+    <div class="search_type cc mb10">
+
+      <div class="mb10"> 
+
+        <span class="mr20">审核状态:</span>
+          <select class="select_2" name="term">
+          <option value='2' <if condition="$term eq 2">selected</if>>全部</option>
+            <option value='0' <if condition="$term eq 0">selected</if>>未审核</option>
+            <option value='1' <if condition="$term eq 1">selected</if>>已审核</option>
+
+          </select> 
+            <input type="submit" class="btn" value="搜索"/>
+            
+      </div>
+    </div>
+  </form>
+
+  <div class="common-form">
+    <form method="post" class="J_ajaxForm" action="{:U('Shop/belstatus')}">
+      <div class="table_list">
+	    <table width="100%" class="table table-hover">
+	       <thead>
+	        <tr>
+	          <th class="check-header"><label class="checkbox inline" for="check_all"><input type="checkbox" class="J_check_all" data-direction="y" data-checklist="J_check_y" id="check_all"></label></th>
+	          <th width="15%">编号</th>
+             <th width="15%">店铺名称</th>
+	          <th width="15%">金额</th>
+            <th width="15%">支付时间</th>
+	          <th width="15%">审核状态</th>
+	          <th width="15%">审核时间</th>
+	          <th width="25%" style="padding-left:10px;">操作</th>
+	        </tr>
+	       </thead>
+	    <tbody>
+        <volist name="fm" id="vo">
+	       <tr>
+		      <td class="check hidden-xs"><label><input type="checkbox" class="J_check_all" data-direction="x" data-checklist="J_check_x" name="ids[]" value="{$vo.fm_id}"></label></td>
+		      <td>{$vo.fm_id}</td>
+		      <td>{$vo.shop_name}</td>
+		      <td>{$vo.money}</td>
+          <td>{$vo.pay_time|date="Y-m-d H:i:s",###}</td>
+		      <td><if condition="$vo.sh_status eq 1">已审核 <td>{$vo.sh_time|date="Y-m-d H:i:s",###}</td><else />未审核<td></td></if></td>
+         
+		      <td>
+		        <if condition="$vo.shop_status eq 0"><a class="table-actions" href="{:U('Shop/setstatus',array('id'=>$vo['fm_id']))}">审核</a><else /><a class="table-actions" style="color: gray;">审核</a></if>
+             
+		      </td>
+		   </tr>
+       </volist>
+	    </tbody>
+	  </table>
+	     <div class="pagination">{$page}</div>
+  	     </div>
+         <input class="btn" type="submit" value="批量审核"/>
+    </form>
+  </div>
+</div>
+
+<script src="__ROOT__/statics/js/common.js"></script>
+<script>
+
+function refersh_window() {
+    var refersh_time = getCookie('refersh_time');
+    if (refersh_time == 1) {
+        window.location="{:u('AdminPost/index',$formget)}";
+    }
+}
+setInterval(function(){
+	refersh_window();
+}, 2000);
+$(function () {
+	setCookie("refersh_time",0);
+    Wind.use('ajaxForm','artDialog','iframeTools', function () {
+        //批量移动
+        $('#J_Content_remove').click(function (e) {
+            var str = 0;
+            var id = tag = '';
+            $("input[name='ids[]']").each(function () {
+                if ($(this).attr('checked')) {
+                    str = 1;
+                    id += tag + $(this).val();
+                    tag = ',';
+                }
+            });
+            if (str == 0) {
+				art.dialog.through({
+					id:'error',
+					icon: 'error',
+					content: '您没有勾选信息，无法进行操作！',
+					cancelVal: '关闭',
+					cancel: true
+				});
+                return false;
+            }
+            var $this = $(this);
+            art.dialog.open("__ROOT__/index.php?g=portal&m=AdminPost&a=move&ids=" + id, {
+                title: "批量移动",
+                width:"80%"
+            });
+        });
+    });
+});
+</script>
+</body>
+</html>

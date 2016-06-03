@@ -2,59 +2,66 @@
 <body class="J_scroll_fixed">
 <div class="wrap J_check_wrap">
   <ul class="nav nav-tabs">
-     <li class="active"><a href="#">所有店铺</a></li>
-     <li><a href="#"  target="_self">添加店铺</a></li>
+     <li class="active"><a href="{:U('Shop/index')}">所有店铺</a></li>
+     <li><a href="{:U('Shop/addshop')}"  target="_self">添加店铺</a></li>
   </ul>
-  <form class="well form-search" method="post" action="{:u('AdminPost/index')}">
+  <form class="well form-search" method="post" action="{:U('Shop/shopsearch')}">
     <div class="search_type cc mb10">
       <div class="mb10"> 
         <span class="mr20">店铺账号:</span>
-         <input type="text" class="input length_2" name="keyword" style="width:200px;" value="{$formget.keyword}" placeholder="请输入店铺账号">
+         <input type="text" class="input length_2" name="login" style="width:200px;" value="{$formget.login}" placeholder="请输入店铺账号">
          &nbsp; &nbsp; <span class="mr20">店铺名称:</span>
-        <input type="text" class="input length_2" name="keyword" style="width:200px;" value="{$formget.keyword}" placeholder="请输入店铺名称">
+        <input type="text" class="input length_2" name="name" style="width:200px;" value="{$formget.name}" placeholder="请输入店铺名称">
         <input type="submit" class="btn" value="搜索"/>
         </span>
       </div>
     </div>
   </form>
   <div class="common-form">
-    <form method="post" class="J_ajaxForm" action="#">
+    <form method="post" class="J_ajaxForm" action="{:U('Shop/belfreeze')}">
       <div class="table_list">
 	    <table width="100%" class="table table-hover">
 	       <thead>
 	        <tr>
 	          <th class="check-header"><label class="checkbox inline" for="check_all"><input type="checkbox" class="J_check_all" data-direction="y" data-checklist="J_check_y" id="check_all"></label></th>
-	          <th width="6%">编号</th>
-	          <th width="10%">店铺账号</th>
-	          <th width="10%">密码</th>
-	          <th width="10%">微信公众号</th>
-	          <th width="15%">注册时间</th>
-	          <th width="15%">过期时间</th>
+	          <th width="5%">编号</th>
+	          <th width="8%">店铺账号</th>
+	          <th width="6%">密码</th>
+             <th width="8%">店铺名称</th>
+	          <th width="8%">微信公众号</th>
+            <th width="8%">最后登录ip</th>
+            <th width="13%">最后登录时间</th>
+	          <th width="13%">注册时间</th>
+	          <th width="13%">过期时间</th>
 	          <th width="10%">状态</th>
-	          <th width="40%" style="padding-left:10px;">操作</th>
+	          <th width="25%" style="padding-left:10px;">操作</th>
 	        </tr>
 	       </thead>
 	    <tbody>
+        <volist name="shop" id="vo">
 	       <tr>
-		      <td class="check hidden-xs"><label><input type="checkbox" class="J_check_all" data-direction="x" data-checklist="J_check_x"></label></td>
-		      <td>1</td>
-		      <td>Robert</td>
-		      <td>Kelso</td>
-		      <td>robert@gmail.com</td>
-		      <td>2016-05-04 11:07:14-2013</td>
-		      <td>2016-05-04 11:07:14</td>
-		      <td>正常</td>
+		      <td class="check hidden-xs"><label><input type="checkbox" class="J_check_all" data-direction="x" data-checklist="J_check_x" name="ids[]" value="{$vo.id}"></label></td>
+		      <td>{$vo.id}</td>
+		      <td>{$vo.shop_login}</td>
+		      <td>{$vo.shop_pass}</td>
+          <td>{$vo.shop_name}</td>
+		      <td>{$vo.wx_name}</td>
+          <td>{$vo.last_login_ip}</td>
+          <td>{$vo.last_login_time}</td>
+		      <td>{$vo.create_time}</td>
+		      <td>{$vo.out_time|date="Y-m-d H:i:s",###}</td>
+		      <td><if condition="$vo.shop_status eq 1">正常<else />冻结</if></td>
 		      <td>
-		        <a class="table-actions" href="#">修改</a>| 
-		        <a class="table-actions" href="#">禁用</a>| 
-		        <a class="table-actions" href="#">充值</a>| 
-		        <a class="table-actions"  href="#">重置密码</a>
+		        <if condition="$vo.shop_status eq 1"><a class="table-actions" href="{:U('Shop/freeze',array('id'=>$vo['id']))}">冻结</a><else /><a class="table-actions" href="{:U('Shop/nofreeze',array('id'=>$vo['id']))}">取消冻结</a></if>
+            <a class="table-actions" href="{:U('Shop/reset',array('id'=>$vo['id']))}">重置密码</a>  
 		      </td>
 		   </tr>
+       </volist>
 	    </tbody>
 	  </table>
-	     <div class="pagination">{$Page}</div>
+	     <div class="pagination">{$page}</div>
   	     </div>
+         <input class="btn" type="submit" value="批量冻结"/>
     </form>
   </div>
 </div>
