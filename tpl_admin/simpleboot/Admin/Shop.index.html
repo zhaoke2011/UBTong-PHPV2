@@ -26,7 +26,6 @@
 	          <th class="check-header"><label class="checkbox inline" for="check_all"><input type="checkbox" class="J_check_all" data-direction="y" data-checklist="J_check_y" id="check_all"></label></th>
 	          <th width="5%">编号</th>
 	          <th width="8%">店铺账号</th>
-	          <th width="6%">密码</th>
              <th width="8%">店铺名称</th>
 	          <th width="8%">微信公众号</th>
             <th width="8%">最后登录ip</th>
@@ -42,17 +41,16 @@
 	       <tr>
 		      <td class="check hidden-xs"><label><input type="checkbox" class="J_check_all" data-direction="x" data-checklist="J_check_x" name="ids[]" value="{$vo.id}"></label></td>
 		      <td>{$vo.id}</td>
-		      <td>{$vo.shop_login}</td>
-		      <td>{$vo.shop_pass}</td>
-          <td>{$vo.shop_name}</td>
+		      <td>{$vo.user_login}</td>
+          <td>{$vo.user_nicename}</td>
 		      <td>{$vo.wx_name}</td>
           <td>{$vo.last_login_ip}</td>
           <td>{$vo.last_login_time}</td>
 		      <td>{$vo.create_time}</td>
 		      <td>{$vo.out_time|date="Y-m-d H:i:s",###}</td>
-		      <td><if condition="$vo.shop_status eq 1">正常<else />冻结</if></td>
+		      <td><if condition="$vo.user_status eq 1">正常<else />冻结</if></td>
 		      <td>
-		        <if condition="$vo.shop_status eq 1"><a class="table-actions" href="{:U('Shop/freeze',array('id'=>$vo['id']))}">冻结</a><else /><a class="table-actions" href="{:U('Shop/nofreeze',array('id'=>$vo['id']))}">取消冻结</a></if>
+		        <if condition="$vo.user_status eq 1"><a class="table-actions" href="{:U('Shop/freeze',array('id'=>$vo['id']))}">冻结</a><else /><a class="table-actions" href="{:U('Shop/nofreeze',array('id'=>$vo['id']))}">取消冻结</a></if>
             <a class="table-actions" href="{:U('Shop/reset',array('id'=>$vo['id']))}">重置密码</a>  
 		      </td>
 		   </tr>

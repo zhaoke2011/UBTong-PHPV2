@@ -5,9 +5,16 @@ class ShopAction extends AdminbaseAction {
         $this->initMenu();
     }
     //显示店铺信息
-    public function index(){
-        $shop=M('shop')->where('parent_id=0')->select();
-        $count=M('shop')->where('parent_id=0')->count();
+    public function index(){  
+        $shopuser=M('users')->where('id='.$_SESSION['ADMIN_ID'])->find();
+        if($shopuser['shop_type']==1){
+            $shop=M('users')->where('shop_type=2')->select();
+            $count=M('users')->where('shop_type=2')->count();
+        }
+        if($shopuser['shop_type']==2){
+            $shop=M('users')->where('shop_type=3')->select();
+            $count=M('users')->where('shop_type=3')->count();
+        }
         $page=$this->page($count,10);
         $this->assign('page',$page->show());
         $this->assign('shop',$shop);
@@ -22,8 +29,8 @@ class ShopAction extends AdminbaseAction {
     //重置密码
     public function reset(){
         $id=$_GET['id'];
-        $data['shop_pass']=123456;
-        $reset=M('shop')->where('id='.$id)->save($data);
+        $data['user_pass']=sp_password(123456);
+        $reset=M('users')->where('id='.$id)->save($data);
         if($reset){
             $this->success('重置密码成功');
         }else{
@@ -33,10 +40,9 @@ class ShopAction extends AdminbaseAction {
     //冻结账号
     public function freeze(){
         $id=$_GET['id'];
-        $data['shop_status']=0;
-        $freeze=M('shop')->where('id='.$id)->save($data);
+        $data['user_status']=0;
+        $freeze=M('users')->where('id='.$id)->save($data);
         if($freeze){
-            
             $this->success('冻结成功');
         }else{
             $this->error('冻结失败');
@@ -45,8 +51,8 @@ class ShopAction extends AdminbaseAction {
     //取消冻结账号
     public function nofreeze(){
         $id=$_GET['id'];
-        $data['shop_status']=1;
-        $freeze=M('shop')->where('id='.$id)->save($data);
+        $data['user_status']=1;
+        $freeze=M('users')->where('id='.$id)->save($data);
         if($freeze){
             
             $this->success('取消冻结成功');
@@ -58,26 +64,36 @@ class ShopAction extends AdminbaseAction {
     //批量冻结
     public function belfreeze(){
         $ids=I('post.ids');
-        $data['shop_status']=0;
+        $data['user_status']=0;
         $where['id']=array('in',$ids);
-        $st=M('shop')->where($where)->save($data);
+        $st=M('users')->where($where)->save($data);
         if($st){
             $this->success('批量冻结成功');
         }else{
             $this->error('批量冻结失败');
         }
     }
+    //添加店铺
+    public function addshop(){
+        $this->display();
+    }
     //店铺搜索
     public function shopsearch(){
         if(isset($_POST['login'])){
-            $where['shop_login']=array('like',"%".$_POST['login']."%");
+            $where['user_login']=array('like',"%".$_POST['login']."%");
         }
         if(isset($_POST['name'])){
-            $where['shop_name']=array('like',"%".$_POST['name']."%");
+            $where['user_name']=array('like',"%".$_POST['name']."%");
         }
-        $where['parent_id']=0;
-        $shop=M('shop')->where($where)->select();
-        $count=M('shop')->where($where)->count();
+        $shopuser=M('users')->where('id='.$_SESSION['ADMIN_ID'])->find();
+        if($shopuser['shop_type']==1){
+            $where['shop_type']=2;
+        }
+        if($shopuser['shop_type']==2){
+            $where['shop_type']=3;
+        }
+        $shop=M('users')->where($where)->select();
+        $count=M('users')->where($where)->count();
         $page=$this->page($count,10);
         $this->assign('page',$page->show());
         $this->assign('shop',$shop);
@@ -86,10 +102,17 @@ class ShopAction extends AdminbaseAction {
     }
     //财务管理
     public function Fmindex(){
+        $shopuser=M('users')->where('id='.$_SESSION['ADMIN_ID'])->find();
+        if($shopuser['shop_type']==1){
+            $shop_type=2;
+        }
+        if($shopuser['shop_type']==2){
+            $shop_type=3;
+        }
         $fm=M('finace_manage')->order('add_time desc')->select();
         foreach ($fm as $key => $value) {
-            $shop_name=M('shop')->where('id='.$value['a_shop_id'])->find();//查询店铺名称
-            $fm[$key]['shop_name']=$shop_name['shop_name'];
+            $shop_name=M('users')->where('id='.$value['a_shop_id'].' and shop_type='.$shop_type.'')->find();//查询店铺名称
+            $fm[$key]['user_nicename']=$shop_name['user_nicename'];
         }
         $count=count($fm);
         $page=$this->page($count,10);
@@ -100,17 +123,24 @@ class ShopAction extends AdminbaseAction {
     }
     //审核搜索
     public function fmsearch(){
+        $shopuser=M('users')->where('id='.$_SESSION['ADMIN_ID'])->find();
+        if($shopuser['shop_type']==1){
+            $shop_type=2;
+        }
+        if($shopuser['shop_type']==2){
+            $shop_type=3;
+        }
         if($_POST['term']==2){
             $fm=M('finace_manage')->order('add_time desc')->select();
             foreach ($fm as $key => $value) {
-                $shop_name=M('shop')->where('id='.$value['a_shop_id'])->find();//查询店铺名称
-                $fm[$key]['shop_name']=$shop_name['shop_name'];
+                $shop_name=M('users')->where('id='.$value['a_shop_id'].' and shop_type='.$shop_type.'')->find();//查询店铺名称
+                $fm[$key]['user_nicename']=$shop_name['user_nicename'];
             }
         }else{
             $fm=M('finace_manage')->where('sh_status='.$_POST['term'])->order('add_time desc')->select();
             foreach ($fm as $key => $value) {
-                $shop_name=M('shop')->where('id='.$value['a_shop_id'])->find();//查询店铺名称
-                $fm[$key]['shop_name']=$shop_name['shop_name'];
+                 $shop_name=M('users')->where('id='.$value['a_shop_id'].' and shop_type='.$shop_type.'')->find();//查询店铺名称
+                $fm[$key]['user_nicename']=$shop_name['user_nicename'];
             }
         }
         $count=count($fm);
@@ -124,10 +154,10 @@ class ShopAction extends AdminbaseAction {
     public function setstatus(){
         $id=$_GET['id'];
         $fm=M('finace_manage')->where('fm_id='.$id)->find();
-        $shop=M('shop')->where('id='.$fm['a_shop_id'])->find();
+        $shop=M('users')->where('id='.$fm['a_shop_id'])->find();
         $time=strtotime("+".$shop['continuted_time']." day",$shop['out_time']);
         $datas['out_time']=$time;
-        $s=M('shop')->where('id='.$shop['id'])->save($datas);
+        $s=M('users')->where('id='.$shop['id'])->save($datas);
         $data['sh_status']=1;
         $data['sh_time']=time();
         $data['admin_id']=$_SESSION['ADMIN_ID'];
@@ -147,11 +177,11 @@ class ShopAction extends AdminbaseAction {
         $data['admin_id']=$_SESSION['ADMIN_ID'];
         foreach ($ids as $key => $value) {
             $fm=M('finace_manage')->where('fm_id='.$value)->find();
-            $shop=M('shop')->where('id='.$fm['a_shop_id'])->find();
+            $shop=M('users')->where('id='.$fm['a_shop_id'])->find();
             $time=strtotime("+".$shop['continuted_time']." day",$shop['out_time']);
             $datas['out_time']=$time;
-            $s=M('shop')->where('id='.$shop['id'])->save($datas);
-           
+            $s=M('users')->where('id='.$shop['id'])->save($datas);
+
         }
         $st=M('finace_manage')->where($where)->save($data);
         if($st){
