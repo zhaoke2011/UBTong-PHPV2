@@ -8,7 +8,7 @@ class UserAction extends AdminbaseAction{
 		$this->role_obj = D("Role");
 	}
 	function index(){
-		$users=$this->users_obj->select();
+		$users=$this->users_obj->where('shop_type=1')->select();
 		$roles_src=$this->role_obj->select();
 		$roles=array();
 		foreach ($roles_src as $r){

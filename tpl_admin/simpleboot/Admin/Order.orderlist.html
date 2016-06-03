@@ -1,154 +1,116 @@
-﻿
+﻿<admintpl file="header" />
+<style type="text/css">
+    ul,li{
+        font-weight: bold;
+        list-style: none;
+    }
+    table tbody tr td ul li{
+        width: 25%;
+        float: left;
 
- <link href="__PUBLIC__/mrSystem/res/iframe/css/com.css" rel="stylesheet" type="text/css" />
-    <link href="__PUBLIC__/mrSystem/res/iframe/css/mall.css" rel="stylesheet" type="text/css" />
-    <link href="__PUBLIC__/mrSystem/res/iframe/css/popularize.css" rel="stylesheet" type="text/css" />
-    
-    <script type="text/javascript" language="javascript" src="__PUBLIC__/mrSystem/res/iframe/js/jquery.js"></script>
-    <script type="text/javascript" language="javascript" src="__PUBLIC__/mrSystem/res/iframe/js/mall.js"></script>
-    <link href="__PUBLIC__/mrSystem/res/bootstrap/bootstrap-3.3.0/css/bootstrap.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="__PUBLIC__/My97DatePicker/WdatePicker.js"></script>
-    <link href="__PUBLIC__/mrSystem/res/component/css/component.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript">
-        function search(){
-            
-            $('#sub').submit();
-        }
-    </script>
-<body>
-    <div class="background_Frame_div_bg" style=""></div>
-     <div id="loading_layer" style="display:none;">
-        <img src="__PUBLIC__/mrSystem/res/bootstrap/loadRes/img/loading.gif" id="loading_img" alt=""/>
+    }
+   table .tc{
+        text-align: center;
+        vertical-align: middle;
+    }
+</style>
+
+<body class="J_scroll_fixed">
+<div class="wrap J_check_wrap">
+ <ul class="nav nav-tabs">
+    <li <if condition="$op eq 5">class="active"</if>>
+      <a href="{:U('Order/orderlist',array('p'=>1,'op'=>5))}">所有订单</a>
+    </li>
+    <li <if condition="$op eq 0">class="active"</if>>
+      <a href="{:U('Order/orderlist',array('p'=>1,'op'=>0))}"  target="_self">待支付</a>
+    </li>
+    <li <if condition="$op eq 1">class="active"</if>>
+      <a href="{:U('Order/orderlist',array('p'=>1,'op'=>1))}"  target="_self">已支付</a>
+    </li>
+    <li <if condition="$op eq 2">class="active"</if>>
+      <a href="{:U('Order/orderlist',array('p'=>1,'op'=>2))}"  target="_self">已退款</a>
+    </li>
+    <li <if condition="$op eq 3">class="active"</if>>
+      <a href="{:U('Order/orderlist',array('p'=>1,'op'=>3))}"  target="_self">已关闭</a>
+    </li>
+    <li <if condition="$op eq 4">class="active"</if>>
+     <a href="{:U('Order/orderlist',array('p'=>1,'op'=>4))}"  target="_self">已完成</a>
+    </li>
+ </ul>
+  <form class="well form-search" method="post" action="__URL__/orderssearch/p/1/op/{$op}">
+    <div class="search_type cc mb10">
+      <div class="mb10"> 
+        <span class="mr20">
+                   &nbsp; &nbsp;店铺名称：
+            <input type="text" class="input length_2" name="shop_name" style="width:120px;" value="{$shopname}" placeholder="请输入店铺名称">
+                   &nbsp; &nbsp;商品名称：
+            <input type="text" class="input length_2" name="mes_name" style="width:120px;" value="{$mesname}" placeholder="请输入商品名称">
+                   &nbsp; &nbsp;订单编号：
+            <input type="text" class="input length_2" name="order_sn" style="width:120px;" value="{$ordersn}" placeholder="请输入订单编号">
+            <span >
+                &nbsp;&nbsp;时间：
+                <input type="text" name="start_time" class="input length_2 J_date" value="{$starttime}" realvalue="{$starttime}"  style="width:100px;" autocomplete="off">-<input type="text" class="input length_2 J_date" name="end_time" value="{$endtime}" realvalue="{$endtime}" style="width:100px;"  autocomplete="on">
+                <input type="submit" class="btn" value="搜索"/>
+            </span>
+        </span>
+      </div>
     </div>
-    <form action="__URL__/orderssearch/p/1/op/{$op}" id="sub" method="post">
-
-
-    <!-- 加载效果设置
-   
-    <!--右边内容-->
-     <div class="tab-product" id="tabProduct">
-    <div class="body-right">
-        <!--订单内容块-->
-        <div class="order-main" style="overflow:visible; height:auto;">
-            <div class="order-top">
-                <div class="top-left" style="width: 350px;">
-                    <p>
-                        <span>店铺名称：</span>
-                        <input type="text" placeholder="请输入文字..." class="input_text_1" name="shop_name" value="{$shop_name}"/>
-                        <em class="clr"></em>
-                    </p>
-                    <p class="p-name">
-                        <span>商品名称：</span>
-                        <input type="text" placeholder="请输入文字..." class="input_text_1" name="mes_name" value="{$mes_name}"/>
-                        <em class="clr"></em>
-                    </p>
-                    <p class="p-name">
-                        <span>订单编号：</span>
-                        <input type="text" placeholder="请输入文字..." class="input_text_1" name="order_sn" value="{$order_sn}"/>
-                        <em class="clr"></em>
-                    </p>
-                </div>
-                <div class="top-right">
-                    <div class="or-time">
-                        <span class="s-text">成交时间：</span>
-                        <em>从</em>
-                       <input name="start_time" value="{$start_time}" realvalue="{$start_time}" type="text" class="input_text_1 Wdate" readonly="readonly" onclick="WdatePicker({maxDate:'%y-%M-%d'})" size="12" style="width: 179px;">
-                        <em>到</em>
-                        <input name="end_time" value="{$end_time}" realvalue="{$end_time}" type="text" class="input_text_1 Wdate" readonly="readonly" onclick="WdatePicker({maxDate:'%y-%M-%d'})" size="12" style="width: 179px;">
-                        <p class="clr"></p>
-                    </div>
-                </div>
-                <div class="clr"></div>
+  </form>
+  <form class="J_ajaxForm" action="" method="post">
+    <div class="table_list">
+      <table width="100%" class="table table-bordered table-hover">
+        <thead>
+              <tr>
+                <th width="23%" class="tc">商品名称</th>
+                <th width="8%"  class="tc">单价(元)</th>
+                <th width="8%"  class="tc">数量</th>
+                <th width="8%"  class="tc">运费</th>
+                <th width="10%" class="tc">总价(元)</th>
+                <th width="20%" class="tc">备注</th>
+                <th width="10%" class="tc"><span>订单状态</span></th>
+              </tr>
+        </thead>
+        <tbody>
+            <volist name="orderlist" id="vo">
+                   <tr>
+                       <td colspan="7">
+                           <ul>
+                               <li>订单编号：{$vo.order_sn}</li>
+                               <li>订购时间：{$vo.add_time}</li>
+                               <li>买家：{$vo.buyer_name}</li>
+                               <li>店铺：{$vo.a_shop_id|getshopidbyname}</li>
+                           </ul>
+                       </td>
+                   </tr>
+               <volist name="vo['orderitems']" id="va" key="j">
+              <tr>
+                    <td >
+                        <a class="a-img" href="###">
+                            <img width="46" height="46" src="https://img.alicdn.com/imgextra/i3/479877883/TB2ou0veVXXXXX_XXXXXXXXXXXX_!!479877883.jpg" />
+                        </a>
+                        <a class="a-name" href="###">{$va.merchandise_name}</a>
+                    </td>
+                    <td class="tc">&yen; {$va.price}</td>
+                    <td class="tc">{$va.num}</td>
+                    <if condition="$j eq 1">
+                    <td class="tc" rowspan="{$vo.count}">&yen; {$vo.wl_money}</td>
+                    <td class="tc" rowspan="{$vo.count}">&yen; {$vo.total_money}</td>
+                    <td class="tc" rowspan="{$vo.count}">{$vo.remark}</td>
+                    <td class="tc" rowspan="{$vo.count}">{$vo.o_id|getoidbystatus}</td>
+                    </if>
+              </tr>
+               </volist>
+          </volist>
+        </tbody>
+      </table>
+      <div class="tab-page" style="text-align: center">
+        <div class="tab_page_div_right" style="float: right;margin: 10px 20px 0px 0px;">
+           <div class="green-black" >
+                {$page}
             </div>
-            </form>
-            <!--订单搜索按钮-->
-            <div class="order-seach">
-                <a href="javascript:search();">搜索</a>
-                <!-- <a href="__URL__/pushExcel/shop_id/{$shop_id}">批量导出</a> -->
-                <div class="clr"></div>
-            </div>
-            <!--订单搜索按钮-end-->
-
-            <!--订单切换-->
-            <div class="tab-product" id="tabProduct">
-                <div class="inventory" style="_margin-top:-31px;">
-                    <!--表格-->
-                    <table class="or-table" cellpadding="0" cellspacing="0">
-                        <thead>
-                        <tr>
-                            <td width="18%">商品名称</td>
-                            <td width="20%">单价（元）</td>
-                            <td width="10%">数量</td>
-                            <td width="10%">总价（元）</td>
-                            <td width="13%">备注 </td>
-                            <td width="15%">状态</td>
-                        </tr>
-                        </thead>
-                        <tbody>
-                            <volist name="orderlist" id="vo">
-                        <tr>
-                            <td class="td-2" colspan="1">
-                               <!--  <input id="Check1" class="checkbox" type="checkbox"> --><label for="Check1">订单编号：{$vo.order_sn}</label>
-                            </td>
-                            <td class="td-2" colspan="1">订购时间：{$vo.add_time}</td>
-                            <td class="td-2" colspan="2">买家：{$vo.buyer_name}</td>
-                            <!-- <td class="td-2" colspan="1">交易方式：{$vo.way}</td> -->
-                            <td class="td-2" colspan="2">店铺：{$vo.a_shop_id|getshopidbyname}</td>
-                        </tr>
-                            <volist name="vo['orderitems']" id="va" key="j">
-                        <tr>
-                            <td class="td-pro">
-                                <a class="a-img" href="###">
-                                    <img width="46" height="46" src="__PUBLIC__/mrSystem/res/iframe/img/mall/46x46orderPix1.jpg" />
-                                </a>
-                                <a class="a-name" href="###">{$va.merchandise_name}</a>
-                            </td>
-                            <td>{$va.price}</td>
-                            <td>{$va.num}</td>
-                            <if condition="$j eq 1">
-                            <td rowspan="{$vo.count}">{$vo.total_money}</td>
-                            <td rowspan="{$vo.count}">{$vo.remark}</td>
-                            <td rowspan="{$vo.count}">{$vo.o_id|getoidbystatus}</td>
-                        </if>
-                        </tr>
-                    </volist>
-                    </volist>
-                        </tbody>
-                    </table>
-                    <!--表格-end-->
-
-                    <div class="tab-page" style="text-align: center">
-                        <div class="tab_page_div_right" style="float: right;margin: 10px 20px 0px 0px;">
-                           <div class="green-black" >
-                                {$page}
-                            </div>
-                        </div>
-                        <div style="clear: both;"></div>
-                    </div>
-                </div>
-            </div>
-            <!--订单切换-end-->
         </div>
-        <!--订单内容块-end-->
-    </div>
-    <!--右边内容-end-->
-<!-- start: MAIN JAVASCRIPTS -->
-<!--[if lt IE 9]>
-<script src="res/basic/js/excanvas.min.js"></script>
-<![endif]-->
-<!-- <script type="text/javascript" src="__PUBLIC__/mrSystem/res/basic/js/jquery-1.11.1.min.js"></script>
-<script type="text/javascript" src="__PUBLIC__/mrSystem/res/bootstrap/bootstrap-3.3.0/js/bootstrap.js"></script>
-<script type="text/javascript" src="__PUBLIC__/mrSystem/res/basic/js/png.js" ></script>
-<script type="text/javascript" src="__PUBLIC__/mrSystem/res/component/js/component.js" ></script>
-    <script type="text/javascript" >
-
-        startLoading();
-        $(function(){
-            //启用组件 风格1下拉框
-            componentFunction.select_style_1();
-        });
-    </script> -->
-<!-- end: MAIN JAVASCRIPTS -->
-
+        <div style="clear: both;"></div>
+     </div>
+     <script src="__ROOT__/statics/js/common.js"></script>
 </body>
-<!-- </block> -->
+</html>

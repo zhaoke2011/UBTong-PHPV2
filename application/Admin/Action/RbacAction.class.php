@@ -17,7 +17,7 @@ class RbacAction extends AdminbaseAction {
      * 角色管理，有add添加，edit编辑，delete删除
      */
     public function index() {
-        $data = $this->Role->order(array("listorder" => "asc", "id" => "asc"))->select();
+        $data = $this->Role->where('uid=0')->order(array("listorder" => "asc", "id" => "asc"))->select();
         $level=M('users')->where('id='.$_SESSION["ADMIN_ID"])->getfield('user_level');
         $this->assign("roles", $data);
         $this->assign("level", $level);

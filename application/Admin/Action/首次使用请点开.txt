@@ -5,8 +5,8 @@
 
 FimanageAction 财务管理控制器 欧阳龙泉 
 ShopAction 店铺控制器 欧阳龙泉
-OrderAction 订单控制器 陈忆南
-
+OrderAction 订单控制器 陈忆南 （方法包括：订单查询、订单搜索）
+MerchandiseAction 商品控制器 陈忆南
 
 
 
