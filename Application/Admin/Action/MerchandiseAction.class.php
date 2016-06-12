@@ -83,14 +83,17 @@ class MerchandiseAction extends AdminbaseAction {
     }
     //商品分类搜索
      public function sortsearch(){
-       $mer=M('merchandisecategory');
-      if(isset($_POST['caname'])&& $_POST['caname']!=NULL){
-        $where['category_name']=array('like',"%{$_POST['caname']}%");    
-        }
+        $mer=M('merchandisecategory');
+       $caname=$_POST['caname'];
+      if(isset($caname)&& $caname!=NULL){
+        $where['category_name']=array('like',"%{$caname}%");    
+      }         
+
       $count = $mer->where($where)->count();// 查询满足要求的总记录数
       $page  = $this->Page($count,3);// 实例化分页类
       $nowPage = isset($_GET['p'])?$_GET['p']:1;
       $arr=$mer->where($where)->page($nowPage.','.$page->listRows)->select();
+      $this->assign('caname',$caname);
       $this->assign('list',$arr);
       $this->assign('page',$page->show());
       $this->display('merlist');
@@ -141,7 +144,6 @@ class MerchandiseAction extends AdminbaseAction {
     {
       $this->display();
     }
-
     
 
 }
