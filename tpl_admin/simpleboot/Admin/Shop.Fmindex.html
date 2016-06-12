@@ -1,10 +1,26 @@
-<admintpl file="header"/>
+﻿<admintpl file="header"/>
 <body class="J_scroll_fixed">
+<!-- 全选功能 -->
+<script src="__ROOT__/statics/js/jquery-1.4.4.min.js" type="text/javascript"></script> 
+<script type="text/javascript">
+        $(function() {
+           $("#checkAll").click(function() {
+                $('input[id="subBox"]').attr("checked",this.checked); 
+            });
+            var $subBox = $("input[id='subBox']");
+            $subBox.click(function(){
+                $("#checkAll").attr("checked",$subBox.length == $("input[id='subBox']:checked").length ? true : false);
+            });
+        });
+    </script>
+<!-- 全选功能结束 -->
 <div class="wrap J_check_wrap"> 
   <form class="well form-search" method="post" action="{:U('Shop/fmsearch')}">
     <div class="search_type cc mb10">
 
       <div class="mb10"> 
+        &nbsp;&nbsp;开始时间：<input type="text" name="start_time" class="input length_2 J_date" realvalue="{$startime}" value="{$startime}" style="width:200px;" autocomplete="off">
+        &nbsp;&nbsp;结束时间：<input type="text" class="input length_2 J_date" name="end_time" realvalue="{$endtime}" value="{$endtime}" style="width:200px;" autocomplete="on">
 
         <span class="mr20">审核状态:</span>
           <select class="select_2" name="term">
@@ -25,11 +41,11 @@
 	    <table width="100%" class="table table-hover">
 	       <thead>
 	        <tr>
-	          <th class="check-header"><label class="checkbox inline" for="check_all"><input type="checkbox" class="J_check_all" data-direction="y" data-checklist="J_check_y" id="check_all"></label></th>
+	          <th class="check-header"><input type="checkbox" data-direction="y" data-checklist="J_check_y" id="checkAll"></label></th>
 	          <th width="15%">编号</th>
              <th width="15%">店铺名称</th>
 	          <th width="15%">金额</th>
-            <th width="15%">支付时间</th>
+            <th width="15%">生成时间</th>
 	          <th width="15%">审核状态</th>
 	          <th width="15%">审核时间</th>
 	          <th width="25%" style="padding-left:10px;">操作</th>
@@ -38,23 +54,21 @@
 	    <tbody>
         <volist name="fm" id="vo">
 	       <tr>
-		      <td class="check hidden-xs"><label><input type="checkbox" class="J_check_all" data-direction="x" data-checklist="J_check_x" name="ids[]" value="{$vo.fm_id}"></label></td>
+		      <td class="check hidden-xs"><label><input type="checkbox" class="J_check" data-direction="x" data-checklist="J_check_x" name="ids[]" value="{$vo.fm_id}" id="subBox"></label></td>
 		      <td>{$vo.fm_id}</td>
-		      <td>{$vo.user_nicename}</td>
+		      <td>{$vo.a_shop_id|getshopidbyname}</td>
 		      <td>{$vo.money}</td>
-          <td>{$vo.pay_time|date="Y-m-d H:i:s",###}</td>
+          <td>{$vo.add_time}</td>
 		      <td><if condition="$vo.sh_status eq 1">已审核 <td>{$vo.sh_time|date="Y-m-d H:i:s",###}</td><else />未审核<td></td></if></td>
-         
-		      <td>
+          <td>
 		        <if condition="$vo.shop_status eq 0"><a class="table-actions" href="{:U('Shop/setstatus',array('id'=>$vo['fm_id']))}">审核</a><else /><a class="table-actions" style="color: gray;">审核</a></if>
-             
-		      </td>
+          </td>
 		   </tr>
        </volist>
 	    </tbody>
 	  </table>
 	     <div class="pagination">{$page}</div>
-  	     </div>
+  	   </div>
          <input class="btn" type="submit" value="批量审核"/>
     </form>
   </div>

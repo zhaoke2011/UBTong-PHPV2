@@ -1,5 +1,19 @@
 <admintpl file="header"/>
 <body class="J_scroll_fixed">
+<!-- 全选功能 -->
+<script src="__ROOT__/statics/js/jquery-1.4.4.min.js" type="text/javascript"></script> 
+<script type="text/javascript">
+        $(function() {
+           $("#checkAll").click(function() {
+                $('input[id="subBox"]').attr("checked",this.checked); 
+            });
+            var $subBox = $("input[id='subBox']");
+            $subBox.click(function(){
+                $("#checkAll").attr("checked",$subBox.length == $("input[id='subBox']:checked").length ? true : false);
+            });
+        });
+    </script>
+<!-- 全选功能结束 -->
 <div class="wrap J_check_wrap">
   <ul class="nav nav-tabs">
      <li class="active"><a href="{:U('Shop/index')}">所有店铺</a></li>
@@ -23,7 +37,7 @@
 	    <table width="100%" class="table table-hover">
 	       <thead>
 	        <tr>
-	          <th class="check-header"><label class="checkbox inline" for="check_all"><input type="checkbox" class="J_check_all" data-direction="y" data-checklist="J_check_y" id="check_all"></label></th>
+	          <th class="check-header"><input type="checkbox" data-direction="y" data-checklist="J_check_y" id="checkAll"></label></th>
 	          <th width="5%">编号</th>
 	          <th width="8%">店铺账号</th>
              <th width="8%">店铺名称</th>
@@ -39,7 +53,7 @@
 	    <tbody>
         <volist name="shop" id="vo">
 	       <tr>
-		      <td class="check hidden-xs"><label><input type="checkbox" class="J_check_all" data-direction="x" data-checklist="J_check_x" name="ids[]" value="{$vo.id}"></label></td>
+		      <td class="check hidden-xs"><label><input type="checkbox" class="J_check" data-direction="x" data-checklist="J_check_x" name="ids[]" value="{$vo.id}" id="subBox"></label></td>
 		      <td>{$vo.id}</td>
 		      <td>{$vo.user_login}</td>
           <td>{$vo.user_nicename}</td>

@@ -203,7 +203,7 @@ class RbacAction extends AdminbaseAction {
                 // dump($addauthorize);
                 // exit();
     			if($this->Access->rbac_authorize($roleid,$addauthorize)){
-    				$this->success("授权成功！", U("Rbac/index"));
+    				$this->success("授权成功！", 'javascript:history.back(-1);');
     			}else{
     				$this->error("授权失败！");
     			}

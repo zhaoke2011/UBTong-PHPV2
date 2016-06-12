@@ -1,8 +1,18 @@
 <admintpl file="header"/>
 <body class="J_scroll_fixed">
+<style type="text/css">
+  .pic{
+    margin-top:10px;
+    margin-left: 15px;
+  }
+</style>
 <div class="wrap jj">
+ <ul class="nav nav-tabs">
+     <li><a href="{:U('Shop/index')}">所有店铺</a></li>
+     <li class="active"><a href="{:U('Shop/addshop')}"  target="_self">添加店铺</a></li>
+  </ul>
   <div class="common-form">
-    <form method="post" class="form-horizontal J_ajaxForm">
+    <form method="post" class="form-horizontal J_ajaxForm" action="{:U('Shop/post_addshop')}">
       <div class="table_list">
         <table cellpadding="2" cellspacing="2" width="100%">
           <tbody>
@@ -27,19 +37,30 @@
               <td><input type="text" class="input" name="action" id="action" value=""><span class="must_red">*</span></td>
             </tr>
             <tr>
+              <td>角色:</td>
+              <td>
+                <select name="role_id"  class="normal_select">
+                  <foreach name="roles" item="vo">
+                    <option value="{$vo.id}">{$vo.name}</option>
+                  </foreach>
+                </select>
+              </td>
+            </tr>
+            <tr>
               <td>店铺图标:</td>
               <td>
-        <fieldset class="blue pad-10">
-           <input type="text" class="picList" name="action" id="photos" value="">
-        </fieldset>
-       <br/>
-        <a href='javascript:void(0);' onclick="javascript:flashupload('albums_images', '图片上传','photos',change_images,'10,gif|jpg|jpeg|png|bmp,0','','','')" class="btn">选择图片 </a> </td>
+                 <div class="pic"><input type='hidden' name='slide_pic' id='thumb' value=''>
+                  <a href='javascript:void(0);' onclick="flashupload('thumb_images', '附件上传','thumb',thumb_images,'1,jpg|jpeg|gif|png|bmp,1,,,1','content','12','b6ba209759e147124653ac77362ef2bd');return false;">
+                  <img src='__ROOT__/statics/images/icon/upload-pic.png' id='thumb_preview' width='135' height='113' style='cursor:hand' /></a><br/>
+                 <input type="button"  class="btn pic" onclick="$('#thumb_preview').attr('src','__ROOT__/statics/images/icon/upload-pic.png');$('#thumb').val('');return false;" value="取消图片">
+                </div>
+              </td>
             </tr>
           </tbody>
         </table>
       </div>
       <div class="form-actions">
-        <button type="submit" class="btn btn-primary btn_submit  J_ajax_submit_btn">添加</button>
+        <button type="submit" class="btn btn-primary">添加</button>
         <a class="btn" href="__URL__">返回</a>
       </div>
     </form>

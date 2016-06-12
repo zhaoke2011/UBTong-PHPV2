@@ -1,0 +1,125 @@
+<admintpl file="header"/>
+<body class="J_scroll_fixed">
+<!-- 全选功能 -->
+<script src="__ROOT__/statics/js/jquery-1.4.4.min.js" type="text/javascript"></script> 
+<script type="text/javascript">
+        $(function() {
+           $("#checkAll").click(function() {
+                $('input[name="subBox"]').attr("checked",this.checked); 
+            });
+            var $subBox = $("input[name='subBox']");
+            $subBox.click(function(){
+                $("#checkAll").attr("checked",$subBox.length == $("input[name='subBox']:checked").length ? true : false);
+            });
+        });
+    </script>
+<!-- 全选功能结束 -->
+<div class="wrap J_check_wrap">
+  <ul class="nav nav-tabs">
+     <li class="active"><a href="{:U('Merchandise/merlist')}">分类列表</a></li>
+     <li><a href="{:U('Merchandise/merchadd')}">添加分类</a></li>
+  </ul>
+  <form class="well form-search" method="post" action="{:U('Merchandise/sortsearch')}">
+    <div class="search_type cc mb10">
+      <div class="mb10"> 
+         &nbsp; &nbsp; <span class="mr20">分类名称:</span>
+        <input type="text" class="input length_2" name="caname" style="width:200px;" value="{$formget.keyword}" placeholder="请输入分类名称">
+        <input type="submit" class="btn" value="搜索"/>
+        </span>
+      </div>
+    </div>
+  </form>
+  <div class="common-form">
+    <form method="post" class="J_ajaxForm" action="#">
+      <div class="table_list">
+	    <table width="100%" class="table table-hover">
+	       <thead>
+	        <tr>
+	          <th class="check-header"><label class="checkbox inline" for="check_all"><input type="checkbox"  data-direction="y" data-checklist="J_check_y" id="checkAll"></label></th>
+	          <th width="6%">编号</th>
+	          <th width="10%">分类名称</th>
+	          <th width="10%">分类图片</th>
+	          <th width="10%">分类链接</th>
+	          <th width="15%">分类描述</th>
+	          <th width="40%" style="padding-left:10px;">操作</th>
+	        </tr>
+	       </thead>
+	    <tbody>
+      <volist name="list" id="vo">
+         <tr>
+		      <td class="check hidden-xs"><label><input type="checkbox"  data-direction="x" data-checklist="J_check_x" name="subBox"></label></td>
+		      <td>{$vo.mc_id}</td>
+		      <td>{$vo.category_name}</td>
+          <td>
+              <img style="width:46px;height:46px;" src="{$vo.category_picture}" />
+          </td>
+		      <td>{$vo.category_url}</td>
+          <td>{$vo.category_description}</td>
+		      <td>
+         
+		        <a class="table-actions" href="{:U('Merchandise/merchedit',array('mc_id'=>$vo['mc_id']))}">修改</a>| 
+		        <a class="table-actions" href="{:U('Merchandise/merchdelete',array('mc_id'=>$vo['mc_id']))}">删除</a>
+		       
+		      </td>
+		   </tr>
+    </volist>
+	    </tbody>
+	  </table>
+	      <div class="tab-page" style="text-align: center">
+        <div class="tab_page_div_right" style="float: right;margin: 10px 20px 0px 0px;">
+           <div class="green-black" >
+                {$page}
+            </div>
+        </div>
+        <div style="clear: both;"></div>
+     </div>
+    </form>
+  </div>
+</div>
+
+<script src="__ROOT__/statics/js/common.js"></script>
+<script>
+
+function refersh_window() {
+    var refersh_time = getCookie('refersh_time');
+    if (refersh_time == 1) {
+        window.location="{:u('AdminPost/index',$formget)}";
+    }
+}
+setInterval(function(){
+	refersh_window();
+}, 2000);
+$(function () {
+	setCookie("refersh_time",0);
+    Wind.use('ajaxForm','artDialog','iframeTools', function () {
+        //批量移动
+        $('#J_Content_remove').click(function (e) {
+            var str = 0;
+            var id = tag = '';
+            $("input[name='ids[]']").each(function () {
+                if ($(this).attr('checked')) {
+                    str = 1;
+                    id += tag + $(this).val();
+                    tag = ',';
+                }
+            });
+            if (str == 0) {
+				art.dialog.through({
+					id:'error',
+					icon: 'error',
+					content: '您没有勾选信息，无法进行操作！',
+					cancelVal: '关闭',
+					cancel: true
+				});
+                return false;
+            }
+            var $this = $(this);
+            art.dialog.open("__ROOT__/index.php?g=portal&m=AdminPost&a=move&ids=" + id, {
+                title: "批量移动",
+                width:"80%"
+            });
+        });
+    });
+});
+</script>
+</body>

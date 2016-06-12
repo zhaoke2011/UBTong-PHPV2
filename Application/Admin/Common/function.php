@@ -1,7 +1,7 @@
 <?php
 //通过店铺id获取店铺名称
 function getshopidbyname($shop_id){
-    $shop_name=M('shop')->where('id='.$shop_id)->getField('shop_name');
+    $shop_name=M('users')->where('id='.$shop_id)->getField('user_nicename');
     return $shop_name;
 }
 function getoidbystatus($o_id){
